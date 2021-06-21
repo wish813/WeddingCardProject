@@ -179,12 +179,18 @@ table tfoot ol.paging li a:hover {
 	float: right;
 }
 </style>
-
+<script type="text/javascript">
+	function sns() {
+		
+		
+	}
+</script>
 </head>
 
 <body>
 	<header>
 		<h2>
+			<%--내용 변수 정해주기 ${}--%>
 			<a style="font-size: 2em">철수♡영미</a>
 		</h2>
 
@@ -202,6 +208,8 @@ table tfoot ol.paging li a:hover {
 	<p id="host">철수♡영미</p>
 	<br>
 	<pre>
+	<%--내용 변수 정해주기 ${ }--%>
+	
 ////////////////////////////////
 
 가을과 겨울 사이
@@ -238,6 +246,7 @@ table tfoot ol.paging li a:hover {
 		<script charset="UTF-8" class="daum_roughmap_loader_script"
 			src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 
+
 		<!-- 3. 실행 스크립트 -->
 		<script charset="UTF-8">
 			new daum.roughmap.Lander({
@@ -247,6 +256,8 @@ table tfoot ol.paging li a:hover {
 		</script>
 		<div class="add_box">
 		<p style="text-align: left; margin-left: 15px;">
+		
+		<%--내용--%>
 아만티호텔웨딩
 서울 마포구 월드컵북로 31 (우)04001
 지번서교동 447-1
@@ -283,6 +294,7 @@ www.hotelamanti.com
 					</tr>
 				</thead>
 				<tbody>
+				<%--변수명 조정 필수 --%>
 					<c:choose>
 						<c:when test="${empty list}">
 							<tr>
@@ -351,7 +363,7 @@ www.hotelamanti.com
 				</tfoot>
 			</table>
 		</div>
-		<button onclick="" style="padding: 10px; margin: 10px;">SNS공유하기</button>
+		<button onclick="sns" style="padding: 10px; margin: 10px;">SNS공유하기</button>
 		
 	</form>
 	</main>
