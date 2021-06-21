@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+   
+    	div{
+    	}
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #logo {
+        padding-left: 20px;
+        text-align: center;
+        font-size: 48px;
+        width: 10%;
+      }
+      #header {
+        display: flex;
+        align-items: center;
+      }
+      #nav {
+        width: 70%;
+        text-align: center;
+      }
+      #nav > div:hover {
+        background-color: bisque;
+        opacity: 0.5;
+      }
+      #nav > div {
+        background-color: wheat;
+        height: 30px;
+        line-height: 30px;
+        cursor: pointer;
+
+        width: 25%;
+        text-align: center;
+        display: inline-block;
+      }
+      #rightTopBar {
+        width: 20%;
+        text-align: center;
+      }
+      #rightTopBar > a {
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+      }
+      #rightTopBar > a:hover,
+      #rightTopBar > a:active {
+        text-decoration: none;
+        color: black;
+      }
+      #rightTopBar > a:hover {
+        border-bottom: 2px solid salmon;
+      }
+      #rightTopBar > a:first-child {
+        margin-right: 20px;
+      }
+
+      #content {
+        width: 100%;
+        height: auto;
+      }
+      
+      	#nav2{
+   		margin:auto;
+   		 width: 80%;
+        text-align: center;
+   		}
+    	.menu{
+   		background-color: NavajoWhite;
+        height: 30px;
+        line-height: 30px;
+        cursor: pointer;
+    	}
+    	#nav2 > div:hover {
+        background-color: Moccasin;
+        opacity: 0.5;
+      }
+      #nav2 > div {
+        background-color: wheat;
+        height: 30px;
+        line-height: 30px;
+        cursor: pointer;
+
+        width: 24%;
+        text-align: center;
+        display: inline-block;
+      }
+      .phone{
+      	width: 30%;
+      	height: 700px;
+      	float: left;
+      	border: 2px solid black;
+      	margin-left: 100px; 
+      }
+      .edit_box{
+      	width:60%;
+      	height: 700px;
+      	float: right;
+      	border: 2px solid black;
+      }
+      .edit{
+      	width:100%;
+      	height: 700px;
+      	border: 2px solid black;
+      }
+      
+      
+      /* menubar */
+      #menubar{
+   		
+   		width: 80%;
+        text-align: center;
+        margin : auto;
+   		}
+    	.menu1{
+   		background-color: NavajoWhite;
+        height: 30px;
+        line-height: 30px;
+        cursor: pointer;
+        float: left;
+        margin: auto;
+       
+    	}
+    	#menubar > div:hover {
+        background-color: Moccasin;
+        opacity: 0.5;
+      }
+      #menubar > div {
+        background-color: wheat;
+        height: 80px;
+        line-height: 80px;
+        cursor: pointer;
+
+        width: 20%;
+        text-align: center;
+        margin: auto;
+        font-size: 20px;
+        
+        font-weight: bold;
+         border-left : 1px white solid;
+        box-sizing:border-box;
+      }
+      
+    fieldset {
+	width: 80%;
+	margin: auto;
+}
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1 id="logo">Logo</h1>
+      <div id="nav">
+        <div onclick="navClick('main.html')">시작하기</div>
+        <div onclick="navClick('guide.html')">가이드</div>
+        <div onclick="navClick('qna.html')">문의/공지</div>
+      </div>
+      <div id="rightTopBar">
+        <a
+          onclick="navClick('login.html')"
+          href="javascript:void(0);"
+          return
+          false;
+          >로그인</a
+        >
+        <a
+          onclick="navClick('test.html')"
+          href="javascript:void(0);"
+          return
+          false;
+          >회원가입</a
+        >
+      </div>
+    </div>
+    <div id="content"></div>
+    <script>
+      function navClick(loadUrl) {
+        $("#content").load(loadUrl);
+      }
+    </script>
+ 
+    <form action="">
+	<div >
+    <div id="menubar" style="box-sizing: border-box;" >
+      		<div class="menu1" onclick="navClick('save.html')" >홈</div>
+      		<div class="menu1" onclick="navClick('sns.html')">상단 문구 입력</div>
+    		  <div class="menu1" onclick="navClick('sns.html')">이미지 편집</div>
+   		   <div class="menu1" onclick="navClick('.html')">상세정보 입력</div>
+   		   <div class="menu1" onclick="navClick('.html')">방명록/오시는길</div>
+   		 </div>
+    </form> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <form action="">
+    	<fieldset>
+    <div class="edit">	
+    	<div>
+    		<img alt="폰사진" src="" class="phone">
+    		</div>
+    	<div class="edit_box">
+    </div>	
+    </div>
+    </fieldset>
+    </form>
+    
+       <div id="footer">
+      <div id="nav2">
+        <div class="menu" onclick="navClick('save.html')">임시저장</div>
+        <div class="menu" onclick="navClick('sns.html')">SNS공유</div>
+        <div class="menu" onclick="navClick('page.html')">홈페이지 반영</div>
+        <div class="menu" onclick="navClick('cancle.html')">취소</div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
