@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      #qnaHeader {
+        height: 100px;
+        background-color: white;
+        text-align: center;
+        padding: 30px;
+      }
+      nav {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+      }
+      nav > div {
+        padding: 10px;
+      }
+      nav > div:hover {
+        border-bottom: 2px solid salmon;
+      }
+      section {
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        background-color: antiquewhite;
+        opacity: 0.5;
+        height: 500px;
+      }
+
+      #board,
+      #board > tr > td {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: collapse;
+        text-align: center;
+      }
+      #board:hover tr:hover td {
+        background-color: white;
+        box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body id="qnaBody">
+    <header id="qnaHeader">
+      <h1>공지사항</h1>
+    </header>
+    <nav>
+      <div>공지사항</div>
+      <div>문의사항</div>
+    </nav>
+    <section>
+      <table id="board">
+        <tr>
+          <th>idx</th>
+          <th colspan="4">Subject</th>
+          <th colspan="2">Date</th>
+          <th>writer</th>
+        </tr>
+      </table>
+    </section>
+    <script id="board-item" type="text/boardItem">
+      <tr>
+        <td>{idx}</td><td colspan="4">{subject}</td><td colspan="2">{date}</td><td>{writer}</td>
+      </tr>
+    </script>
+    <script>
+      var resultHTML = "";
+      var boardItem = document.querySelector("#board-item").innerHTML;
+      var data = [
+        {
+          idx: "1",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "soon",
+        },
+        {
+          idx: "2",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "soon",
+        },
+        {
+          idx: "3",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "soon",
+        },
+        {
+          idx: "4",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "soon",
+        },
+        {
+          idx: "5",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "soon",
+        },
+      ];
+      for (var i = 0, len = data.length; i < len; i++) {
+        resultHTML += boardItem
+          .replace("{idx}", data[i].idx)
+          .replace("{subject}", data[i].subject)
+          .replace("{date}", data[i].date)
+          .replace("{writer}", data[i].writer);
+      }
+      document.querySelector("#board").innerHTML += resultHTML;
+    </script>
+  </body>
+</html>
