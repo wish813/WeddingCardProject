@@ -1,150 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-	<style>
-		@import url(mypage.css);
-		<style type="text/css">
-   	*{
-   	box-sizing: border-box;
-   	}
-   	
-   	.profile{
-   		border: 2px solid gray;
-   		background-color: lightpink;
-   		width: 30%;
-   		height: 1000px;
-   		margin: auto;
-   		float: left;
-   		margin-top: 3em;
-   		margin-left: 4em;
-   		margin-right: 1em;
-   		overflow: hidden;
-   		text-align: center;
-   	}
-   	
-   	.mine{
-   		width: 60%;
-   		height: 1000px;
-   		background-color: rgb(248,248,255);
-   		float: right;
-   		margin-top: 3em;
-   		margin-right: 1em;
-   		position: relative;
-   		padding-top:50px;
-   		
-   	}
-   	
-   	#myimage{
-   		overflow:hidden;
-   		margin: 3px;
-   	}
-   	
-   	#button{
-   		margin-top: 8em;
-   	}
-   
-   	#button_fire{
-   		width: 25%;
-   		height: auto;
-   		background-color: rgba(255,250,250,0.8);
-   		text-decoration: none;
-   		color: black;
-   		text-decoration: border;
-   		padding: 10px;
-   	}
-   
-   	#make{
-   		width: 90%;
-   		height: 10%;
-   		background-color: white;
-   		margin: auto;
-   		text-align: center;
-   		padding: 8px;
-   	}
-   	
-   	#make:hover{
-   		background-color: black;
-   	}
-   	
-   	#make h2{
-   		color: blue;
-   	}
-   	
-   	#make img{
-   		max-height: 100%; 
-   		padding: 5px;
-   	 	margin: auto;
-   	 	overflow: hidden;
-   	}
-    #box{
-        margin-top: 25px;
-        margin-bottom: 10px;
-        border: 2px dotted black;
-        padding: 5px;
-    }
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<style>
+* {
+	box-sizing: border-box;
+}
 
-    #templates{
-        margin: auto;
-        width: 90%;
-        height: 70%;
-    }
-    
-    #tem{
-        width: 100%;
-        height: 150px;
-        background-color: coral;
-		overflow: hidden;
-    }
-    #tem_img{
-		width: 100%;
-		object-fit: cover;
-		position: relative;
-    }
+.profile {
+	border: 2px solid gray;
+	background-color: lightpink;
+	width: 30%;
+	height: 1000px;
+	margin: auto;
+	float: left;
+	margin-top: 3em;
+	margin-left: 4em;
+	margin-right: 1em;
+	overflow: hidden;
+	text-align: center;
+}
+
+.mine {
+	width: 60%;
+	height: 1000px;
+	background-color: rgb(248, 248, 255);
+	float: right;
+	margin-top: 3em;
+	margin-right: 1em;
+	position: relative;
+	padding-top: 50px;
+}
+
+#myimage {
+	overflow: hidden;
+	margin: 3px;
+}
+
+#button {
+	margin-top: 8em;
+}
+
+#button_fire {
+	width: 25%;
+	height: auto;
+	background-color: rgba(255, 250, 250, 0.8);
+	text-decoration: none;
+	color: black;
+	text-decoration: border;
+	padding: 10px;
+}
+
+#make {
+	width: 90%;
+	height: 10%;
+	background-color: white;
+	margin: auto;
+	text-align: center;
+	padding: 8px;
+}
+
+#make:hover {
+	background-color: black;
+}
+
+#make h2 {
+	color: blue;
+}
+
+#make img {
+	max-height: 100%;
+	padding: 5px;
+	margin: auto;
+	overflow: hidden;
+}
+
+#box {
+	margin-top: 25px;
+	margin-bottom: 10px;
+	border: 2px dotted black;
+	padding: 5px;
+}
+
+#templates {
+	margin: auto;
+	width: 90%;
+	height: 70%;
+}
+
+#tem {
+	width: 100%;
+	height: 150px;
+	background-color: coral;
+	overflow: hidden;
+}
+
+#tem_img {
+	width: 100%;
+	object-fit: cover;
+	position: relative;
+}
 </style>
-	</style>
-	   	<script type="text/javascript">
-    function navClick(loadUrl) {
-        $("#content").load(loadUrl);
-      }
-   	</script>
-  </head>
-  <body>
+</style>
+
+</head>
+<body>
 	<!-- 프로필 블록  -->
-	<div class ="profile">
-		<div id ="myimage">
+	<div class="profile">
+		<div id="myimage">
 			<img alt="" src="../img/profile_img.png" style="max-width: 100%;">
 		</div>
 		<br>
 		<div id="name">
-			<p><h2>사용자 이름</h2></p>
+			<p>
+			<h2>사용자 이름</h2>
+			</p>
 		</div>
-		<br>
-		<br>
+		<br> <br>
 		<div id="intro">
-			<p><h5>개인정보가 들어가는 공간입니다.</h5><p>
-			<p><h5>개인정보가 들어가는 공간입니다.</h5><p>
-			<p><h5>개인정보가 들어가는 공간입니다.</h5><p>
-			<p><h5>개인정보가 들어가는 공간입니다.</h5><p>
-			<p><h5>개인정보가 들어가는 공간입니다.</h5><p>
-			<p><h5>개인정보가 들어가는 공간입니다.</h5><p>
+			<p>
+			<h5>개인정보가 들어가는 공간입니다.</h5>
+			<p>
+			<p>
+			<h5>개인정보가 들어가는 공간입니다.</h5>
+			<p>
+			<p>
+			<h5>개인정보가 들어가는 공간입니다.</h5>
+			<p>
+			<p>
+			<h5>개인정보가 들어가는 공간입니다.</h5>
+			<p>
+			<p>
+			<h5>개인정보가 들어가는 공간입니다.</h5>
+			<p>
+			<p>
+			<h5>개인정보가 들어가는 공간입니다.</h5>
+			<p>
 		</div>
 		<div id="button">
-		<a id="button_fire" href="fire.jsp"> 탈퇴하기 </a>
+			<a id="button_fire" href="fire.jsp"> 탈퇴하기 </a>
 		</div>
 	</div>
 	<!-- 본인 템플릿 조회하기 + 제작하기로 넘어가기 -->
-	<div class ="mine">
-		<div onclick="navClick('make_page.html')" id="make">
+	<div class="mine">
+		<div onclick="navClick('makePage.html')" id="make">
 			<h2>제작하기</h2>
 		</div>
 		<div id="templates">
 			<div id="box">
 				<div id="tem">
-					<img alt="" src="../img/updatemark.png" onclick="update.html" >
+					<img alt="" src="../img/updatemark.png" onclick="update.html">
 					<img alt="" src="../img/main_img.jpeg" id="tem_img">
 					<h5>2021-XX-XX</h5>
 				</div>
@@ -156,8 +164,15 @@
 			</div>
 		</div>
 		<div id="sns" onclick="sns.html">
-			<h4>SNS 공유</h2>
+			<h4>
+				SNS 공유
+				</h2>
 		</div>
 	</div>
-  </body>
+	<script type="text/javascript">
+    function navClick(loadUrl) {
+        $("#content").load(loadUrl);
+      }
+   	</script>
+</body>
 </html>
