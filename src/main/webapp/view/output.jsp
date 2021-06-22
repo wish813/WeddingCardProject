@@ -341,7 +341,7 @@ www.hotelamanti.com
 									</c:when>
 									<c:otherwise>
 										<li><a
-											href="${pageContext.request.contextPath}/MyController?cmd=list&cPage=${pvo.beginBlock+pvo.pagePerBlock}">다음으로</a></li>
+											href="/MyController?cmd=list&cPage=${pvo.beginBlock+pvo.pagePerBlock}">다음으로</a></li>
 									</c:otherwise>
 								</c:choose>
 							</ol>
