@@ -25,6 +25,8 @@
         display: flex;
         align-items: center;
       }
+         
+      /* nav (상단 메뉴)*/
       #nav {
         width: 70%;
         text-align: center;
@@ -68,7 +70,8 @@
         width: 100%;
         height: auto;
       }
-      
+         
+      /* nav2 (하단 메뉴)*/
       	#nav2{
    		margin:auto;
    		 width: 80%;
@@ -99,7 +102,7 @@
       	height: 700px;
       	float: left;
       	border: 2px solid black;
-      	margin-left: 100px; 
+      	margin-left: 5%; 
       }
       .edit_box{
       	width:60%;
@@ -114,7 +117,7 @@
       }
       
       
-      /* menubar */
+      /* menubar (메인 메뉴)*/
       #menubar{
    		
    		width: 80%;
@@ -157,15 +160,43 @@
     </style>
   </head>
   <body>
+    <div id="header">
+      <h1 id="logo">Logo</h1>
+      <div id="nav">
+        <div onclick="navClick('main.html')">시작하기</div>
+        <div onclick="navClick('guide.html')">가이드</div>
+        <div onclick="navClick('qna.html')">문의/공지</div>
+      </div>
+      <div id="rightTopBar">
+        <a
+          onclick="navClick('login.html')"
+          href="javascript:void(0);"
+          return
+          false;
+          >로그인</a
+        >
+        <a
+          onclick="navClick('test.html')"
+          href="javascript:void(0);"
+          return
+          false;
+          >회원가입</a
+        >
+      </div>
+    </div>
+    <div id="content"></div>
+    <script>
+     navClick("index.html");
+    </script>
+ 
     <form action="">
-	<div >
-    <div id="menubar" style="box-sizing: border-box;" >
+   		<div id="menubar" style="box-sizing: border-box;" >
       		<div class="menu1" onclick="navClick('save.html')" >홈</div>
       		<div class="menu1" onclick="navClick('sns.html')">상단 문구 입력</div>
     		  <div class="menu1" onclick="navClick('sns.html')">이미지 편집</div>
    		   <div class="menu1" onclick="navClick('.html')">상세정보 입력</div>
    		   <div class="menu1" onclick="navClick('.html')">방명록/오시는길</div>
-   		 </div>
+   		</div>
     </form> 
     <br>
     <br>
