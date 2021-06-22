@@ -201,7 +201,7 @@ table tfoot ol.paging li a:hover {
 	</p>
 	<p id="host">철수♡영미</p>
 	<br>
-	<pre>
+	<pre >${pvo.context}
 ////////////////////////////////
 
 가을과 겨울 사이
