@@ -244,7 +244,7 @@ tr {
 						src="../images/right.png" width="40px"></a>
 				</c:otherwise>
 			</c:choose>
-			<input type="button" value="삭제하기" onclick="delete_go()"
+			<input type="button" value="삭제" onclick="delete_go()"
 				style="height: 41px; width: 80px; float: right;">
 		</div>
 	</div>
