@@ -5,22 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.1/fullpage.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.1/fullpage.min.js"></script>
     <title>Document</title>
     <style>
       body {
         padding: 0;
         margin: 0;
+        margin-top: 10%;
         box-sizing: border-box;
       }
+      #header {
+        background-color: white;
+        position: fixed;
+        border: 1px solid black;
+        top: 0;
+        left: 0;
+        height: 10%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        z-index: 6;
+      }
+
       #logo {
         padding-left: 20px;
         text-align: center;
         font-size: 48px;
         width: 10%;
-      }
-      #header {
-        display: flex;
-        align-items: center;
       }
       #nav {
         width: 70%;
@@ -35,7 +50,6 @@
         height: 30px;
         line-height: 30px;
         cursor: pointer;
-
         width: 25%;
         text-align: center;
         display: inline-block;
@@ -60,10 +74,12 @@
       #rightTopBar > a:first-child {
         margin-right: 20px;
       }
-
+      #header::after {
+        content: "";
+        clear: both;
+      }
       #content {
         width: 100%;
-        height: auto;
       }
     </style>
   </head>
@@ -71,7 +87,7 @@
     <div id="header">
       <h1 id="logo">Logo</h1>
       <div id="nav">
-        <div onclick="navClick('make_page.html')">시작하기</div>
+        <div onclick="navClick('main.html')">시작하기</div>
         <div onclick="navClick('guide.html')">가이드</div>
         <div onclick="navClick('qna.html')">문의/공지</div>
       </div>
@@ -84,7 +100,7 @@
           >로그인</a
         >
         <a
-          onclick="navClick('mypage.html')"
+          onclick="navClick('test.html')"
           href="javascript:void(0);"
           return
           false;
