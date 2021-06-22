@@ -2,11 +2,161 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" text="IE=edge" />
+    <meta name="viewport" text="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.1/fullpage.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.1/fullpage.min.js"></script>
+
     <title>Document</title>
+    <style>
+      body {
+        font-family: "나눔고딕", "굴림" "NanumGothic", "serif";
+      }
+      .section {
+        height: 100%;
+        text-align: center;
+      }
+      .text {
+        font-family: "굴림";
+        width: 730px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        color: white;
+        font-size: 20px;
+      }
+      .background {
+        background-image: url("../images/tempBack.jpg");
+        background-attachment: fixed;
+        background-position: 0;
+        background-size: 120%;
+        background-repeat: no-repeat;
+      }
+      .footer {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 0;
+        background-color: white;
+        text-align: center;
+      }
+
+      .title {
+        font-size: 56px;
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    guide.html
+    <div id="full-page">
+      <div class="section background">
+        <div class="slide">
+          <span class="title">쉽게 따라하는 다양한 템플릿</span>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+            repellendus iusto culpa accusamus optio magni consectetur provident
+            quis iste vitae voluptatum qui eos officia neque. Placeat voluptates
+            nostrum maxime quos!
+          </p>
+        </div>
+        <div class="slide">
+          <span class="title">쉽게 따라하는 다양한 템플릿</span>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+            repellendus iusto culpa accusamus optio magni consectetur provident
+            quis iste vitae voluptatum qui eos officia neque. Placeat voluptates
+            nostrum maxime quos!
+          </p>
+        </div>
+        <div class="slide">
+          <span class="title">쉽게 따라하는 다양한 템플릿</span>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+            repellendus iusto culpa accusamus optio magni consectetur provident
+            quis iste vitae voluptatum qui eos officia neque. Placeat voluptates
+            nostrum maxime quos!
+          </p>
+        </div>
+      </div>
+      <div class="section">
+        <h2>Section 01</h2>
+        <div class="slide">Slide 1</div>
+        <div class="slide">Slide 2</div>
+        <div class="slide">Slide 3</div>
+        <div class="slide">Slide 4</div>
+      </div>
+      <div class="section">
+        <h2>Section02</h2>
+        <div class="footer"></div>
+      </div>
+      <div class="section">
+        <h2>Section</h2>
+      </div>
+      <div class="section">
+        <h2>Section</h2>
+      </div>
+      <div class="section">
+        <h2>Section</h2>
+      </div>
+      <div class="section">
+        <h2>Section</h2>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $("#full-page").fullpage({
+          licenseKey: "",
+          sectionsColor: [
+            "",
+            "#f2f2f2",
+            "#4BBFC3",
+            "#7BAABE",
+            "whitesmoke",
+            "#ccddff",
+          ],
+          navigation: true,
+          navigationTooltips: [
+            "1.템플릿 선택",
+            "2.상단문구 입력",
+            "3.이미지 정렬 선택",
+            "4.갤러리 사진 추가",
+            "5.상세 정보",
+            "6.방명록",
+            "7.오시는길",
+          ],
+          scrollingSpeed: 800,
+          onLeave: function (origin, destination, direction) {
+            console.log("onLeave", origin.index, destination.index);
+            $(".footer").delay(800).animate(
+              {
+                height: "0px",
+                bottom: "0",
+                left: "0",
+              },
+              "800",
+              "linear"
+            );
+          },
+          afterLoad: function (origin, destination, direction) {
+            console.log("afterLoad");
+
+            $(".footer").delay(800).animate(
+              {
+                height: "100px",
+                bottom: "0",
+                left: "0",
+              },
+              "800",
+              "linear"
+            );
+          },
+        });
+      });
+    </script>
   </body>
 </html>

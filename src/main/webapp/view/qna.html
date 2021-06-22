@@ -3,19 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      * {
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;
-      }
       #qnaHeader {
         height: 100px;
         background-color: white;
         text-align: center;
-        padding: 30px;
+        padding: 15px;
       }
       nav {
         width: 70%;
@@ -24,16 +20,17 @@
         display: flex;
       }
       nav > div {
-        padding: 10px;
+        padding: 15px;
+        border-bottom: 4px solid lightgray;
       }
       nav > div:hover {
-        border-bottom: 2px solid salmon;
+        border-bottom: 4px solid black;
       }
       section {
         margin-left: auto;
         margin-right: auto;
-        width: 70%;
-        background-color: antiquewhite;
+        width: 100%;
+        background-color: lightgray;
         opacity: 0.5;
         height: 500px;
       }
@@ -45,9 +42,46 @@
         border-collapse: collapse;
         text-align: center;
       }
+      #board tr:nth-child(even) {
+        background-color: whitesmoke;
+      }
+      #board,
+      #board tr,
+      #board td {
+        padding: 5px;
+        border-bottom: 1px solid lightgray;
+      }
+      #board th {
+        border-bottom: 1px solid black;
+        padding: 10px;
+        font-size: 24px;
+        color: black;
+      }
       #board:hover tr:hover td {
-        background-color: white;
+        background-color: gray;
         box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.2);
+      }
+      #paging {
+        text-align: center;
+      }
+      #paging a {
+        font-size: 32px;
+      }
+      #paging .next {
+        font-size: 46px;
+      }
+      #paging a,
+      .next {
+        color: gray;
+        padding: 5px;
+        text-decoration: none;
+      }
+      #paging a:hover,
+      .next:hover {
+        color: black;
+      }
+      #gong:focus {
+        color: blue;
       }
     </style>
   </head>
@@ -56,28 +90,46 @@
       <h1>공지사항</h1>
     </header>
     <nav>
-      <div>공지사항</div>
-      <div>문의사항</div>
+      <div id="gong">공지사항</div>
+      <div id="moon">문의사항</div>
     </nav>
     <section>
-      <table id="board">
-        <tr>
-          <th>idx</th>
-          <th colspan="4">Subject</th>
-          <th colspan="2">Date</th>
-          <th>writer</th>
-        </tr>
-      </table>
+      <table id="board"></table>
     </section>
+
+    <div id="paging">
+      <a class="next" href="">&laquo;</a>
+      <a href="#">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a class="next" href="">&raquo;</a>
+    </div>
+
     <script id="board-item" type="text/boardItem">
       <tr>
         <td>{idx}</td><td colspan="4">{subject}</td><td colspan="2">{date}</td><td>{writer}</td>
       </tr>
     </script>
     <script>
-      var resultHTML = "";
+      var resultHTML =
+        " <tr><th>idx</th><th colspan='4'>Subject</th><th colspan='2'>Date</th><th>writer</th></tr>";
       var boardItem = document.querySelector("#board-item").innerHTML;
-      var data = [
+      //임의 데이터 gongData, moonData
+      var gongData = [
+        {
+          idx: "1",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "soon",
+        },
+        {
+          idx: "2",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "soon",
+        },
+      ];
+      var moonData = [
         {
           idx: "1",
           subject: "loreremlorerem",
@@ -108,15 +160,72 @@
           date: "2021-06-18",
           writer: "soon",
         },
+        {
+          idx: "6",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "minsoon",
+        },
+        {
+          idx: "7",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "minsoon",
+        },
+        {
+          idx: "8",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "soon",
+        },
+        {
+          idx: "9",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "minsoon",
+        },
+        {
+          idx: "10",
+          subject: "loreremlorerem",
+          date: "2021-06-18",
+          writer: "minsoon",
+        },
       ];
-      for (var i = 0, len = data.length; i < len; i++) {
-        resultHTML += boardItem
-          .replace("{idx}", data[i].idx)
-          .replace("{subject}", data[i].subject)
-          .replace("{date}", data[i].date)
-          .replace("{writer}", data[i].writer);
+      gongClick();
+      function gongClick() {
+        resultHTML =
+          " <tr><th>idx</th><th colspan='4'>Subject</th><th colspan='2'>Date</th><th>writer</th></tr>";
+        document.querySelector("#qnaHeader").innerHTML = "<h1>공지사항</h1>";
+        for (var i = 0, len = gongData.length; i < len; i++) {
+          resultHTML += boardItem
+            .replace("{idx}", gongData[i].idx)
+            .replace("{subject}", gongData[i].subject)
+            .replace("{date}", gongData[i].date)
+            .replace("{writer}", gongData[i].writer);
+        }
+        document.querySelector("#board").innerHTML = resultHTML;
       }
-      document.querySelector("#board").innerHTML += resultHTML;
+      function moonClick() {
+        resultHTML =
+          " <tr><th>idx</th><th colspan='4'>Subject</th><th colspan='2'>Date</th><th>writer</th></tr>";
+        document.querySelector("#qnaHeader").innerHTML = "<h1>문의사항</h1>";
+        for (var i = 0, len = moonData.length; i < len; i++) {
+          resultHTML += boardItem
+            .replace("{idx}", moonData[i].idx)
+            .replace("{subject}", moonData[i].subject)
+            .replace("{date}", moonData[i].date)
+            .replace("{writer}", moonData[i].writer);
+        }
+        document.querySelector("#board").innerHTML = resultHTML;
+      }
+      $(document).ready(function () {
+        $("#gong").click(function () {
+          gongClick();
+        });
+        $("#moon").click(function () {
+          moonClick();
+        });
+      });
     </script>
   </body>
 </html>
