@@ -227,6 +227,11 @@ table tfoot ol.paging li a:hover {
 	<div class="come">
 		<!-- * 카카오맵 - 지도퍼가기 -->
 		<!-- 1. 지도 노드 -->
+		
+		
+		
+		
+		
 		<div id="daumRoughmapContainer1623926482443"
 			class="root_daum_roughmap root_daum_roughmap_landing"
 			style="margin: left; width : 60% ; float: left;"></div>
@@ -294,7 +299,7 @@ www.hotelamanti.com
 								<tr>
 									<td>${pvo.totalRecord-((pvo.nowPage-1)*pvo.numPerPage+vs.index)}</td>
 									<td><a
-										href="${pageContext.request.contextPath}/MyController?cmd=onelist&b_idx=${k.b_idx}&cPage=${pvo.nowPage}">${k.subject }</a></td>
+										href="/MyController?cmd=onelist&b_idx=${k.b_idx}&cPage=${pvo.nowPage}">${k.subject }</a></td>
 									<td>${k.writer }</td>
 									<td>${k.write_date.substring(0,10) }</td>
 									<td><button onclick="delete_go()">삭제</button></td>
@@ -317,7 +322,7 @@ www.hotelamanti.com
 									</c:when>
 									<c:otherwise>
 										<li><a
-											href="${pageContext.request.contextPath}/MyController?cmd=list&cPage=${pvo.beginBlock-pvo.pagePerBlock}">이전으로</a></li>
+											href="/MyController?cmd=list&cPage=${pvo.beginBlock-pvo.pagePerBlock}">이전으로</a></li>
 									</c:otherwise>
 								</c:choose>
 								<!-- 블록안에 들어간 페이지번호들 -->
@@ -330,7 +335,7 @@ www.hotelamanti.com
 										</c:when>
 										<c:otherwise>
 											<li><a
-												href="${pageContext.request.contextPath}/MyController?cmd=list&cPage=${k}">${k}</a></li>
+												href="/MyController?cmd=list&cPage=${k}">${k}</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
