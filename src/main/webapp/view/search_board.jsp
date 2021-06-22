@@ -157,11 +157,7 @@ tr {
 								</c:choose> 
 								--%>
 							
-								<tr>
-									<th style="width: 15%"><input type="checkbox">전체선택</th>
-									<th style="width: 70%">제목</th>
-									<th style="width: 15%">작성자</th>
-								</tr>
+							
 								<tr>
 									<th style="width: 15%"><input type="checkbox">전체선택</th>
 									<th style="width: 70%">제목</th>
