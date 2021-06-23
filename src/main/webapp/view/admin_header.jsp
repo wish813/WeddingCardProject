@@ -79,8 +79,8 @@
       <h1 id="logo"><a href="header.jsp">Logo</a></h1>
       <div id="nav">
         <div onclick="navClick('main.html')">게시판 관리</div>
-        <div onclick="navClick('guide.html')">회원정보 관리</div>
-        <div onclick="navClick('content.jsp')">템플릿 관리</div>
+        <div onclick="navClick('user_info.jsp')">회원정보 관리</div>
+        <div onclick="navClick('template.jsp')">템플릿 관리</div>
       </div>
       <div id="rightTopBar">
         <a
@@ -97,7 +97,7 @@
           false;
           >마이페이지</a
         >
-      </div>
+      </div>   
     </div>
     <div id="content"></div>
     <script>

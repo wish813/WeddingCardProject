@@ -7,6 +7,7 @@
 <meta charset="EUC-KR">
 <title>템플릿 보기</title>
 <style type="text/css">
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
 body {
 	padding: 0;
 	margin: 0;
@@ -18,11 +19,6 @@ body {
 	width: 1500px;
 	height: 100%;
 	margin: auto;
-}
-
-#head {
-	display: flex;
-	align-items: center;
 }
 
 #cnt_logo {
@@ -69,6 +65,19 @@ table {
 	margin-left: 20px;
 	height: 35px;
 	width: 500px;
+	border-radius: 7px;
+	font-family: 'fontAwesome';
+}
+
+#search::-webkit-input-placeholder {
+	font-family: FontAwesome;
+	font-weight: normal;
+	overflow: visible;
+	vertical-align: top;
+	display: inline-block !important;
+	padding-left: 5px;
+	padding-top: 2px;
+	color: hsl(9, 40%, 60%);
 }
 
 #searchbar #sort {
@@ -121,7 +130,7 @@ table {
 	text-decoration: none;
 }
 
-#paging>input {
+#paging>button {
 	position: absolute;
 	height: 45px;
 	right: 23%;
@@ -129,7 +138,7 @@ table {
 </style>
 <script type="text/javascript">
 	function write_go() {
-		location.href = "content_add.jsp";
+		location.href = "template_add.jsp";
 	}
 </script>
 </head>
@@ -138,31 +147,27 @@ table {
 		<div id="head">
 			<h1 id="cnt_logo">템플릿 선택</h1>
 		</div>
-		<form method="post" action="#">
+		<form method="post">
 			<div id="searchbar">
 				<select id="sort">
 					<option value="init">이름별</option>
 					<option value="color">색상별</option>
 				</select> <input id="search" type="search" name="input"
-					placeholder="검색할 내용을 입력해주세요"> <input id="img" type="image"
+					placeholder="&#61442;"> <input id="img" type="image"
 					src="../images/search.png" alt="검색">
 			</div>
 			<div id="temple">
 				<table>
 					<tbody>
 						<tr>
-							<td><a href="#"> <img alt="삼성"
-									src="../images/sam.png">
+							<td><a href="#"> <img alt="삼성" src="../images/sam.png">
 									<p>삼성</p>
 							</a></td>
-							<td><a href="#"><img alt="삼성"
-									src="../images/sam.png">
+							<td><a href="#"><img alt="삼성" src="../images/sam.png">
 									<p>템플릿2</p></a></td>
-							<td><a href="#"><img alt="삼성"
-									src="../images/sam.png">
+							<td><a href="#"><img alt="삼성" src="../images/sam.png">
 									<p>템플릿3</p></a></td>
-							<td><a href="#"><img alt="삼성"
-									src="../images/sam.png">
+							<td><a href="#"><img alt="삼성" src="../images/sam.png">
 									<p>템플릿4</p></a></td>
 						</tr>
 						<tr>
@@ -170,8 +175,9 @@ table {
 									src="../images/opgg.jpg">
 									<p>op.gg</p>
 							</a></td>
-							<td><a href="#">
-									<p>템플릿6</p>
+							<td><a href="#"> <img alt="템플릿"
+									src="upload/${bvo.file_name}">
+									<p>${bvo.file_name}</p>
 							</a></td>
 							<td><a href="#">
 									<p>템플릿7</p>
@@ -218,9 +224,9 @@ table {
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<input
+			<button
 				style="height: 40px; width: 150px; font-size: 22px; background-color: wheat"
-				type="button" value="템플릿 추가" onclick="write_go()">
+				type="button" onclick="write_go()">템플릿 추가</button>
 		</div>
 	</div>
 </body>
