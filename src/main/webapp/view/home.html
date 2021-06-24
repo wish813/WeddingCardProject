@@ -16,11 +16,11 @@
 		}
 
 		#temp_img {
-		
+
 			width: auto;
-			margin: 50px 7px auto;
 			position: relative;
 			height: auto;
+			margin: 50px 7px auto;
 			max-width: 95%;
 			max-height: 80%;
 		}
@@ -44,17 +44,22 @@
 			overflow: hidden;
 		}
 
-		input[type="radio"]{display: none;}
+		input[type="radio"] {
+			display: none;
+		}
 
-		.radio_img{
-			display:inline-block;
+		.radio_img {
+			display: inline-block;
 			width: 20%;
 			height: 20%;
 			margin: 0px 10px auto;
 		}
-		input:checked + label.radio_img{border: 2px solid red;}
 
-		.temps > input[type="button"]{
+		input:checked+label.radio_img {
+			border: 2px solid red;
+		}
+
+		.temps>input[type="button"] {
 			margin: 0;
 			position: absolute;
 			top: 90%;
@@ -62,7 +67,7 @@
 			-ms-transform: translate(-50%, -30%);
 			transform: translate(-50%, -50%);
 			background: none;
-			color:black;
+			color: black;
 			padding: 5px;
 		}
 	</style>
@@ -77,12 +82,12 @@
 	<div id="edit_box">
 		<form class="temps" method="POST">
 			<input id="temp1" type="radio" name="temp" value="../img/temp1.jpg" onchange="tempchange()" checked>
-				<label for="temp1" class="radio_img" style="background-color: blue;"></label>
+			<label for="temp1" class="radio_img" style="background-color: blue;"></label>
 			<input type="radio" id="temp2" name="temp" value="../img/temp2.jpg" onchange="tempchange()">
-				<label for="temp2" class="radio_img" style="background-color: blanchedalmond;"></label>
+			<label for="temp2" class="radio_img" style="background-color: blanchedalmond;"></label>
 			<input type="radio" name="temp" id="temp3" value="../img/temp3.jpg" onchange="tempchange()">
-				<label for="temp3" class="radio_img" style="background-color: aqua;"></label>
-				<input type="button" value="선택을 완료하고 다음으로." onclick="navClick('top_title.html')">
+			<label for="temp3" class="radio_img" style="background-color: aqua;"></label>
+			<input type="button" value="선택을 완료하고 다음으로." onclick="navClick('top_title.html')">
 			</label>
 		</form>
 	</div>
@@ -104,7 +109,7 @@
 	}
 
 	// 이미지 파일 주소값 다음 제작 페이지로 넘기기.
-	function go_top_title(f){
+	function go_top_title(f) {
 		f.submit();
 		navClick('top_title.html')
 
