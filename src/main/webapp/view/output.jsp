@@ -7,14 +7,17 @@
 <head>
 <style type="text/css">
 body {
-	background-color: lavenderblush;
+	background-color: white;
 }
 
 header {
 	width: 80%;
 	margin: auto;
 }
-
+.sidemenu{
+	color:black;
+	 text-decoration: none;
+}
 main {
 	background-color: #F7CAC9;
 	width: 60%;
@@ -28,10 +31,20 @@ main {
 }
 
 #sidebar {
-	float: right;
-	text-decoration: none;
+	width:10%;
+	position: fixed;
+	list-style-type: none;
 }
-
+#sidebar > li{
+	border : 1px solid hotpink;
+	margin-bottom: 5px;
+	background: linear-gradient(to right,white , lavenderblush);
+	
+}
+#sidebox{
+	float: right;
+	margin-right: 5%;
+}
 .menu {
 	font-size: 3em;
 	text-align: left;
@@ -141,7 +154,7 @@ textarea {
 }
 
 #date {
-	width: 20%;
+	width: 20%; 
 	
 }
 
@@ -197,23 +210,31 @@ table tfoot ol.paging li a:hover {
 	style ="text-align: left;
 	right: 3%;
 }
+#sns_btn{
+ padding: 10px;
+  margin: 10px;
+}
 </style>
-
+<script type="text/javascript">
+</script>
 </head>
 
 <body>
 	<header>
 		<h2>
-			<a href="index.html" id="go_index"><</a> <a style="font-size: 2em">
+			<a href="history.go(-1)" id="go_index"></a> <a style="font-size: 2em">
 				${pvo.host} 철수♡영미</a>
 		</h2>
-
-		<ol id="sidebar">
-			<li><a href="#host"> 인삿말 </a></li>
-			<li><a href="#wedding"> 갤러리 </a></li>
-			<li><a href="#come"> 오시는 길 </a></li>
-			<li><a href="#bbs"> 방명록 </a></li>
+		<div id="sidebox">
+		<ol id="sidebar" onmouseover="view()" onmouseout="noview()">
+			<li><a href="#host"><p class= "sidemenu" > 인삿말 </p></a></li>
+			<li><a href="#wedding"><p class= "sidemenu" > 갤러리 </p></a></li>
+			<li><a href="#come"><p class= "sidemenu" > 오시는 길 </p></a></li>
+			<li><a href="#bbs"><p class= "sidemenu" > 방명록 </p></a></li>
 		</ol>
+		</div>
+	
+		
 	</header>
 	<main>
 
@@ -412,7 +433,7 @@ geocoder.addressSearch('서울 마포구 월드컵북로 31 ', function(result, 
 					</tfoot>
 				</table>
 			</div>
-			<button onclick="#" style="padding: 10px; margin: 10px;">SNS공유하기</button>
+			<button onclick="#" id = "sns_btn">SNS공유하기</button>
 
 		</form>
 	</main>
