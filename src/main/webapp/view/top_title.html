@@ -4,7 +4,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script src="http://cdn.ckeditor.com/4.16.1/basic/ckeditor.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<style>
@@ -33,27 +32,25 @@
 
 		#title>div {
 			border: 1px solid blue;
-			background-color: rgba(118, 209, 30, 0.5);
+			background-color: rgba(118, 209, 30, 0.2);
 		}
 
-		#mainTitle {
-			display: none;
+		#title .mainTitle {
 			box-sizing: border-box;
+			overflow: hidden;
 			margin-top: 2em;
 			width: 100%;
 			height: 20%;
 		}
 
-		#subTitle {
-			display: none;
+		#title .subTitle {
 			margin-top: 7em;
 			box-sizing: border-box;
 			width: 100%;
 			height: 10%;
 		}
 
-		#infor {
-			display: none;
+		#title .infor {
 			margin-top: 15em;
 			position: static;
 			box-sizing: border-box;
@@ -61,6 +58,50 @@
 			height: 30%;
 		}
 
+		.mainTitle {
+			display: none;
+		}
+
+		.subTitle {
+			display: none;
+		}
+
+		.infor {
+			display: none;
+		}
+
+		.titles{
+			height: 10%;
+			margin: 0px auto;
+			background:rgb(255,204,204);
+			overflow: hidden;
+		}
+
+		.titles #sel_title {
+			margin-top: 12px;
+			margin-left: 23px;
+			display: inline-block;
+			text-align: center;
+			list-style-type: none;
+			background-color: pink;
+		}
+
+		#sel_title > input[type=button]{
+			align-items: center;
+			display: inline-block;
+			padding: 5px 20px;
+			margin:auto;
+			border: 3px solid white;
+			color:whitesmoke;
+			text-align: center;
+			background-color: rgb(255,204,204);
+		}
+
+		#sel_title > input[type=button]:hover{
+			color:rgb(204,153	,153);
+			border: 3px solid rgb(204,153,153);
+		}
+		
 		#writebox {
 			margin: 0px auto;
 			width: 90%;
@@ -73,52 +114,39 @@
 			width: 95%;
 			height: 25%;
 		}
-
-		.writeSub {
-			width: 95%;
-			height: 15%;
-		}
-
-		#writebox>input[type="button"] {
-			margin: 0;
-			position: fixed;
-			top: 76.8%;
-			left: 65.8%;
-			-ms-transform: translate(-50%, -30%);
-			transform: translate(-50%, -50%);
-			background: none;
-			color: black;
-			padding: 5px;
-		}
 	</style>
 </head>
 
 <body>
 	<div id="phone">
 		<section id=title>
-			<div id="mainTitle"></div>
-			<div id="subTitle"></div>
-			<div id="infor"></div>
+			<div class="mainTitle"></div>
+			<div class="subTitle"></div>
+			<div class="infor"></div>
 		</section>
 	</div>
 	<div id="edit_box">
 		<ul class="titles">
-			<li> <input type="button" onclick="maintitle()" name="main_title">메인타이틀</a></li>
-			<li> <input type="button" onclick="subtitle()" name="sub_title">서브타이틀</a></li>
-			<li> <input type="button" onclick="infor()" name="infor">간략정보</input></li>
+			<li id="sel_title"> <input type="button" onclick="maintitle()" name="main_title" value="메인타이틀" class="sel_bnt"></li>
+			<li id="sel_title"> <input type="button" onclick="subtitle()" name="sub_title" value="서브타이틀" class="sel_bnt"></li>
+			<li id="sel_title"> <input type="button" onclick="infor()" name="infor" value="간략정보" class="sel_bnt"></li>
 		</ul>
-		<div id="writebox">
-			<p>상단 메인 문구를 입력하세요.</p>
-			<textarea name="main_title" cols="30" rows="10" class="writeMain"></textarea>
-			<script>
-				CKEDITOR.replace('main_title');
-			</script>
-			<p style="margin-top: 20px;">서브 타이틀을 입력하세요.</p>
-			<textarea name="sub_title" cols="30" rows="10" class="writeSub"></textarea>
-			<script>
-				CKEDITOR.replace('sub_title');
-			</script>
-			<input type="button" value="선택을 완료하고 다음으로." onclick="navClick('images.html')">
+		<hr>
+		<div class="top_title">
+			<ul class="fonts">
+				<li><input type="radio" name="나눔고딕" value="나눔고딕"> 나눔고딕 </li>
+				<li><input type="radio" name="나눔고딕" value="나눔고딕"> 나눔고딕 </li>
+				<li><input type="radio" name="나눔고딕" value="나눔고딕"> 나눔고딕 </li>
+			</ul>
+				<p></p>
+				<textarea name="main_title" cols="30" rows="10" class="writeMain"></textarea>
+				<script>
+					CKEDITOR.replace('main_title');
+				</script>
+			</div>
+		</ul>
+
+
 		</div>
 	</div>
 </body>
@@ -127,24 +155,20 @@
 		var newText = $('.writeMain').val();
 		$('#mainTitle').text(newText);
 	})
-	$('.writeSub').keyup(function () {
-		var newText = $('.writeSub').val();
-		$('#subTitle').text(newText);
-	})
 	function maintitle() {
-		$('#mainTitle').css("display","block");
-		$('#subTitle').css("display","none");
-		$('#infor').css("display","none");
+		$('.mainTitle').css("display", "block");
+		$('.subTitle').css("display", "none");
+		$('.infor').css("display", "none");
 	}
 	function subtitle() {
-		$('#mainTitle').css("display","none");
-		$('#subTitle').css("display","block");
-		$('#infor').css("display","none");
+		$('.mainTitle').css("display", "none");
+		$('.subTitle').css("display", "block");
+		$('.infor').css("display", "none");
 	}
 	function infor() {
-		$('#mainTitle').css("display","none");
-		$('#subTitle').css("display","none");
-		$('#infor').css("display","block");
+		$('.mainTitle').css("display", "none");
+		$('.subTitle').css("display", "none");
+		$('.infor').css("display", "block");
 	}
 </script>
 
