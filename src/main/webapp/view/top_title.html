@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<style>
+		@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+		@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+		@import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+
 		#phone {
 			width: 30%;
 			float: left;
@@ -44,18 +48,24 @@
 		}
 
 		#title .subTitle {
-			margin-top: 7em;
+			margin-top: 1em;
 			box-sizing: border-box;
 			width: 100%;
 			height: 10%;
 		}
 
 		#title .infor {
-			margin-top: 15em;
+			margin-top: 5em;
 			position: static;
 			box-sizing: border-box;
 			width: 100%;
 			height: 30%;
+		}
+
+		.top_title,
+		.sub_title,
+		.information {
+			display: none;
 		}
 
 		.mainTitle {
@@ -70,10 +80,10 @@
 			display: none;
 		}
 
-		.titles{
+		.titles {
 			height: 10%;
 			margin: 0px auto;
-			background:rgb(255,204,204);
+			background: rgb(255, 204, 204);
 			overflow: hidden;
 		}
 
@@ -86,22 +96,69 @@
 			background-color: pink;
 		}
 
-		#sel_title > input[type=button]{
+		#sel_title>input[type=button] {
 			align-items: center;
 			display: inline-block;
 			padding: 5px 20px;
-			margin:auto;
+			margin: auto;
 			border: 3px solid white;
-			color:whitesmoke;
+			color: whitesmoke;
 			text-align: center;
-			background-color: rgb(255,204,204);
+			background-color: rgb(255, 204, 204);
 		}
 
-		#sel_title > input[type=button]:hover{
-			color:rgb(204,153	,153);
-			border: 3px solid rgb(204,153,153);
+		#sel_title>input[type=button]:hover {
+			color: rgb(204, 153, 153);
+			border: 3px solid rgb(204, 153, 153);
 		}
-		
+
+		ul {
+			margin: 0px;
+			text-align: center;
+			background-color: rgb(255, 204, 204);
+			padding: 10px 30px 20px 10px;
+			overflow: hidden;
+		}
+
+		ul>li {
+			display: inline-block;
+		}
+
+		input[type=radio] {
+			opacity: 0;
+		}
+
+		label {
+			padding: 5px 10px;
+			border: 3px solid white;
+			border-radius: 3px;
+			color: white;
+		}
+
+		input[type=radio]:checked+label {
+			background: rgb(204, 153, 153);
+			color: rgb(255, 204, 204);
+		}
+
+		.fonts>input[type="radio"] {
+			display: inline-block;
+		}
+
+		.degines>li>input[type=button] {
+			opacity: 0;
+			display: none;
+		}
+
+		.degines>li>label:hover {
+			color: rgb(204, 153, 153);
+			border: 3px solid rgb(204, 153, 153);
+		}
+
+		.degines>li>input[type=button]:active+label {
+			color: rgb(204, 153, 153);
+			border: 3px solid rgb(204, 153, 153);
+		}
+
 		#writebox {
 			margin: 0px auto;
 			width: 90%;
@@ -110,65 +167,258 @@
 			overflow: hidden;
 		}
 
-		.writeMain {
+		textarea {
+			margin: 0px 10px auto;
 			width: 95%;
 			height: 25%;
+			border: 1px solid rgb(204, 153, 153);
 		}
 	</style>
 </head>
 
 <body>
 	<div id="phone">
-		<section id=title>
+		<form id=title method="POST">
 			<div class="mainTitle"></div>
 			<div class="subTitle"></div>
 			<div class="infor"></div>
-		</section>
+		</form>
 	</div>
+
 	<div id="edit_box">
 		<ul class="titles">
-			<li id="sel_title"> <input type="button" onclick="maintitle()" name="main_title" value="메인타이틀" class="sel_bnt"></li>
-			<li id="sel_title"> <input type="button" onclick="subtitle()" name="sub_title" value="서브타이틀" class="sel_bnt"></li>
-			<li id="sel_title"> <input type="button" onclick="infor()" name="infor" value="간략정보" class="sel_bnt"></li>
+			<li id="sel_title">
+				<input type="button" onclick="maintitle()" name="main_title" value="메인타이틀" class="sel_bnt">
+			</li>
+			<li id="sel_title">
+				<input type="button" onclick="subtitle()" name="sub_title" value="서브타이틀" class="sel_bnt">
+			</li>
+			<li id="sel_title">
+				<input type="button" onclick="infor()" name="infor" value="간략정보" class="sel_bnt">
+			</li>
 		</ul>
-		<hr>
+
 		<div class="top_title">
 			<ul class="fonts">
-				<li><input type="radio" name="나눔고딕" value="나눔고딕"> 나눔고딕 </li>
-				<li><input type="radio" name="나눔고딕" value="나눔고딕"> 나눔고딕 </li>
-				<li><input type="radio" name="나눔고딕" value="나눔고딕"> 나눔고딕 </li>
+				<li>
+					<input class="sel_font" type="radio" name="폰트" value="Jeju Gothic, sans-serif" id="btn01"
+						onclick="T_font(this.value)">
+					<label for="btn01"> 고딕체 </label>
+				</li>
+				<li><input class="sel_font" type="radio" name="폰트" value="Jeju Hallasan, cursive" id="btn02"
+						onclick="T_font(this.value)">
+					<label for="btn02"> 굴림체 </label>
+				</li>
+				<li><input type="radio" class="sel_font" name="폰트" value="Jeju Myeongjo, serif" id="btn03"
+						onclick="T_font(this.value)">
+					<label for="btn03"> 명조체 </label>
+				</li>
 			</ul>
-				<p></p>
-				<textarea name="main_title" cols="30" rows="10" class="writeMain"></textarea>
-				<script>
-					CKEDITOR.replace('main_title');
-				</script>
-			</div>
+			<ul class="sizes">
+				<li>
+					<input type="radio" class="sel_size" id="s_size" value="12px" onclick="T_size(this.value)" name="크기">
+					<label for="s_size">작은 크기</label>
+				</li>
+				<li>
+					<input type="radio" class="sel_size" id="m_size" value="15px" onclick="T_size(this.value)" name="크기">
+					<label for="m_size">중간 크기</label>
+				</li>
+				<li>
+					<input type="radio" class="sel_size" id="l_size" value="18px" onclick="T_size(this.value)" name="크기">
+					<label for="l_size">큰 크기</label>
+				</li>
+			</ul>
+			<ul class="degines">
+				<li>
+					<input type="button" value="bolder" id="bolder_T" onclick="bolderT(this.value)">
+					<label for="bolder_T" style="font-weight: bolder;">굵은글씨</label>
+				</li>
+				<li>
+					<input type="button" value="italic" id="italic_T" onclick="italicT(this.value)">
+					<label for="italric_T" style="font-style: italic;">기울기</label>
+				</li>
+				<li>
+					<input type="button" value="underline" id="under_T" onclick="underT(this.value)">
+					<label for="under_T" style="text-decoration-line: underline;">밑줄</label>
+				</li>
+				<li>
+					<input type="color" id="color_T" onclick="colorT()">
+				</li>
+			</ul>
+			<p></p>
+			<textarea name="main_title" cols="30" rows="10" class="writeMain"></textarea>
+
+		</div>
+
+		<div class="sub_title">
+			<ul class="fonts">
+				<li><input class="sel_font" type="radio" name="나눔고딕" value="Jeju Gothic, sans-serif" id="btn04"
+						onclick="S_font(this.value)">
+					<label for="btn04"> 고딕체 </label>
+				</li>
+				<li><input class="sel_font" type="radio" name="나눔고딕" value="Jeju Hallasan, cursive" id="btn05"
+						onclick="S_font(this.value)">
+					<label for="btn05"> 굴림체 </label>
+				</li>
+				<li><input type="radio" class="sel_font" name="나눔고딕" value="Jeju Myeongjo, serif" id="btn06"
+						onclick="S_font(this.value)">
+					<label for="btn06"> 명조체 </label>
+				</li>
+			</ul>
+			<ul class="sizes">
+				<li>
+					<input type="radio" class="sel_size" id="s_size" value="12px" onclick="T_size(this.value)" name="크기">
+					<label for="s_size">작은 크기</label>
+				</li>
+				<li>
+					<input type="radio" class="sel_size" id="m_size" value="15px" onclick="T_size(this.value)" name="크기">
+					<label for="m_size">중간 크기</label>
+				</li>
+				<li>
+					<input type="radio" class="sel_size" id="l_size" value="18px" onclick="T_size(this.value)" name="크기">
+					<label for="l_size">큰 크기</label>
+				</li>
+			</ul>
+			<ul class="degines">
+				<li>
+					<input type="button" value="bolder" id="bolder_T" onclick="bolderT(this.value)">
+					<label for="bolder_T" style="font-weight: bolder;">굵은글씨</label>
+				</li>
+				<li>
+					<input type="button" value="italic" id="italic_T" onclick="italicT(this.value)">
+					<label for="italric_T" style="font-style: italic;">기울기</label>
+				</li>
+				<li>
+					<input type="button" value="underline" id="under_T" onclick="underT(this.value)">
+					<label for="under_T" style="text-decoration-line: underline;">밑줄</label>
+				</li>
+				<li>
+					<input type="color" id="color_T" onclick="colorT()">
+				</li>
+			</ul>
+			<p></p>
+			<textarea name="sub_title" cols="30" rows="10" class="writeSub"></textarea>
+		</div>
+
+		<div class="information">
+			<ul class="fonts">
+				<li><input class="sel_font" type="radio" name="나눔고딕" value="Jeju Gothic, sans-serif" id="btn07"
+						onclick="I_font(this.value)">
+					<label for="btn07"> 고딕체 </label>
+				</li>
+				<li><input class="sel_font" type="radio" name="나눔고딕" value="Jeju Hallasan, cursive" id="btn08"
+						onclick="I_font(this.value)">
+					<label for="btn08"> 굴림체 </label>
+				</li>
+				<li><input type="radio" class="sel_font" name="나눔고딕" value="Jeju Myeongjo, serif" id="btn09"
+						onclick="I_font(this.value)">
+					<label for="btn09"> 명조체 </label>
+				</li>
+			</ul>
+			<ul class="sizes">
+				<li>
+					<input type="radio" class="sel_size" id="s_size" value="12px" onclick="T_size(this.value)" name="크기">
+					<label for="s_size">작은 크기</label>
+				</li>
+				<li>
+					<input type="radio" class="sel_size" id="m_size" value="15px" onclick="T_size(this.value)" name="크기">
+					<label for="m_size">중간 크기</label>
+				</li>
+				<li>
+					<input type="radio" class="sel_size" id="l_size" value="18px" onclick="T_size(this.value)" name="크기">
+					<label for="l_size">큰 크기</label>
+				</li>
+			</ul>
+			<ul class="degines">
+				<li>
+					<input type="button" value="bolder" id="bolder_T" onclick="bolderT(this.value)">
+					<label for="bolder_T" style="font-weight: bolder;">굵은글씨</label>
+				</li>
+				<li>
+					<input type="button" value="italic" id="italic_T" onclick="italicT(this.value)">
+					<label for="italric_T" style="font-style: italic;">기울기</label>
+				</li>
+				<li>
+					<input type="button" value="underline" id="under_T" onclick="underT(this.value)">
+					<label for="under_T" style="text-decoration-line: underline;">밑줄</label>
+				</li>
+				<li>
+					<input type="color" id="color_T" onclick="colorT()">
+				</li>
+			</ul>
+			<p></p>
+			<textarea name="information" cols="30" rows="10" class="writeInfor"></textarea>
+		</div>
 		</ul>
 
 
-		</div>
+	</div>
 	</div>
 </body>
 <script>
 	$('.writeMain').keyup(function () {
 		var newText = $('.writeMain').val();
-		$('#mainTitle').text(newText);
+		$('.mainTitle').text(newText);
 	})
+	$('.writeSub').keyup(function () {
+		var newText = $('.writeSub').val();
+		$('.subTitle').text(newText);
+	})
+	$('.writeInfor').keyup(function () {
+		var newText = $('.writeInfor').val();
+		$('.infor').text(newText);
+	})
+
 	function maintitle() {
 		$('.mainTitle').css("display", "block");
-		$('.subTitle').css("display", "none");
-		$('.infor').css("display", "none");
+		$('.top_title').css("display", "block");
+		$('.sub_title').css("display", "none");
+		$('.information').css("display", "none");
+		// $('.subTitle').css("display", "none");
+		// $('.infor').css("display", "none");
 	}
 	function subtitle() {
-		$('.mainTitle').css("display", "none");
+		// $('.mainTitle').css("display", "none");
 		$('.subTitle').css("display", "block");
-		$('.infor').css("display", "none");
+		$('.top_title').css("display", "none");
+		$('.sub_title').css("display", "block");
+		$('.information').css("display", "none");
+		// $('.infor').css("display", "none");
 	}
 	function infor() {
-		$('.mainTitle').css("display", "none");
-		$('.subTitle').css("display", "none");
+		// $('.mainTitle').css("display", "none");
+		// $('.subTitle').css("display", "none");
 		$('.infor').css("display", "block");
+		$('.top_title').css("display", "none");
+		$('.sub_title').css("display", "none");
+		$('.information').css("display", "block");
+	}
+	function T_font(v) {
+		$('.writeMain').css("font-family", v);
+		$('.mainTitle').css("font-family", v);
+	}
+	function bolderT(b) {
+		$('.mainTitle').css("font-weight", b);
+	}
+	function italicT(i) {
+		$('.mainTitle').css("font-style", "italic");
+	}
+	function underT(u) {
+		$('.mainTitle').css("text-decoration-line", u);
+	}
+	function colorT() {
+		var colors = $('#color_T').css("color");
+		$('.mainTitle').css("color", colors)
+	}
+	function S_font(v) {
+		$('.writeSub').css("font-family", v);
+		$('.subTitle').css("font-family", v);
+
+	}
+	function I_font(v) {
+		$('.writeInfor').css("font-family", v);
+		$('.infor').css("font-family", v);
+
 	}
 </script>
 
