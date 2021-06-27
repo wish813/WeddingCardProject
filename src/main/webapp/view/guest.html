@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>Document</title>
+<style>
+
+#phone {
+			width: 30%;
+			float: left;
+			height: 100%;
+			border: 2px solid black;
+			border-radius: 50px;
+			text-align: center;
+		}
+
+		#edit_box {
+			width: 60%;
+			float: right;
+			height: 100%;
+			border: 2px solid black;
+			margin: auto;
+		}
+/* menubar */
+#menubar {
+	width: 90%;              
+	text-align: center;
+	height: 120px;
+	margin: auto;
+}
+
+.menu1 {
+	background-color: NavajoWhite;
+	height: 30px;
+	line-height: 30px;
+	cursor: pointer;
+	float: left;
+	margin: auto;
+}
+
+#menubar>div:hover {
+	background-color: Moccasin;
+	opacity: 0.5;
+}
+
+#menubar>div {
+	background-color: wheat;
+	height: 80px;
+	line-height: 80px;
+	cursor: pointer;
+	width: 15%;
+	text-align: center;
+	margin: auto;
+	font-size: 20px;
+	font-weight: bold;
+	border-left: 1px white solid;
+	box-sizing: border-box;
+}
+
+.menu {
+	background-color: NavajoWhite;
+	height: 30px;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+#edit {
+	width: 80%;
+	margin: auto;
+	padding: 15px;
+	height: 500px;
+	border: 2px solid black;
+}
+
+#footer {
+	width: 100%;
+	height: 120px;
+	line-height: 120px;
+	text-align: center;
+}
+
+#footer>div:hover {
+	background-color: Moccasin;
+	opacity: 0.5;
+}
+
+#footer>div {
+	background-color: wheat;
+	height: 50px;
+	line-height: 50px;
+	cursor: pointer;
+	width: 20%;
+	text-align: center;
+	display: inline-block;
+}
+</style>
+</head>
+<body>
+	<div id="phone">
+		<section id=title>
+			<div class="mainTitle"></div>
+			<div class="subTitle"></div>
+			<div class="infor"></div>
+			<div class="guest"></div>
+		</section>
+	</div>
+	<div id="edit_box">
+		<div class="guest">
+			<div>
+				<h5>게시글 쓰기</h5>
+				<input type="radio" name="account" value="every">누구나
+				<input type="radio" name="account" value="adim">관리자만
+			</div>	
+			<hr>
+
+			<div>
+				<h5>답글/댓글/비밀글 설정</h5>
+				<input type="checkbox" name="board_type" value="reply">답글 가능
+					<div>
+					<input type="checkbox" name="board_type" class="every" value="comment">댓글 가능
+					<input type="checkbox" name="board_type" class="every" value="secret">비밀글 기본
+					</div>
+				<hr>
+			</div>
+			
+			<div>
+				<h5>게시글 보기</h5>
+				<input type="radio" name="show_type" value="list_type">목록보기
+				<input type="radio" name="show_type" value="card_type">카드보기
+				<hr>
+			</div>
+			<div>
+				<h5>글쓰기 안내 문구</h5>
+				<textarea rows="5px" cols="90%"></textarea>
+				<hr>
+			</div>
+			<div>
+				<h5>알람 설정</h5>
+				<input type="checkbox" name="alarm" value="on">알람 설정하기
+			</div>
+			
+		</div>
+	</div>
+</body>
+
+<script>
+	$('.writeMain').keyup(function () {
+		var newText = $('.writeMain').val();
+		$('.mainTitle').text(newText);
+	})
+	function maintitle() {
+		$('.mainTitle').css("display", "block");
+		$('.subTitle').css("display", "none");
+		$('.infor').css("display", "none");
+		$('.guest').css("display", "none");
+	}
+	function subtitle() {
+		$('.mainTitle').css("display", "none");
+		$('.subTitle').css("display", "block");
+		$('.infor').css("display", "none");
+		$('.guest').css("display", "none");
+	}
+	function infor() {
+		$('.mainTitle').css("display", "none");
+		$('.subTitle').css("display", "none");
+		$('.infor').css("display", "block");
+		$('.guest').css("display", "none");
+	}
+	function guest() {
+		$('.mainTitle').css("display", "none");
+		$('.subTitle').css("display", "none");
+		$('.infor').css("display","none");
+		$('.guest').css("display", "block");
+	}
+
+	function account() {
+		if(account!=every){
+			document.onclick.css(display="none");
+		}else{
+			document.onclick.css(display="block");
+		}
+	}
+</script>
+
+</html>
