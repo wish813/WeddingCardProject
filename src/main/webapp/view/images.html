@@ -15,19 +15,172 @@
 
 
 #edit_box {
-	width: 60%;
 	float:right;
 	height: 100%;
 	border: 2px solid black;
 }
+#option_block{
+	border: 1px solid gray;
+	width: 100%;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+}
+
+#option_block2{
+	border: 1px solid gray;
+	width: 100%;
+	border-left: none;
+	border-right: none;
+	
+}
+
+#block_text{
+	text-align: center;
+	font-size: 20px;
+	margin: 16px;
+}
+#block_img{
+	border: 1px solid #697a8f;
+	padding: 20px;
+	text-align: center;
+	font-size: 20px;
+	background-color: #f3f4f4;
+	vertical-align: middle;
+	margin: 16px;
+	line-height: 50px;
+}
+#input_b_text{
+	margin-bottom: 10px;
+	height: 20px;
+	
+}
+
+#option_text{
+	border-top: 1px solid  #697a8f;
+	line-height: 30px;
+}
+#option_img{
+	border-top: 1px solid  #697a8f;
+	line-height: 30px;
+}
+.input_text{
+	word-spacing: 6px;
+	
+}
+#phone{
+	display: grid;
+}
+
+#p_img{
+	border: 1px solid #697a8f;
+	padding: 20px;
+	text-align: center;
+	background-color: #f3f4f4;
+	vertical-align: middle;
+	margin: 24px;
+	height: 50px;
+}
+#p_img2{
+	border: 1px solid #697a8f;
+	padding: 20px;
+	text-align: center;
+	background-color: #f3f4f4;
+	vertical-align: middle;
+	margin: 24px;
+	height: 50px;
+}
+
+#p_title{
+	margin: 24px;
+	line-height: 0.1;
+}
+#p_txt{
+	margin: 24px;
+	line-height: 0.1;
+}
+#p_title2{
+	margin: 24px;
+	line-height: 0.1;
+	
+}
+#p_txt2{
+	margin: 24px;
+	line-height: 0.1;
+}
+
 
 </style>
-</head>
 
+<script type="text/javascript">
+
+</script>
+
+</head>
 <body>
+
 		<div id="phone">
-		이미지
+		<div class="p_res">
+			<div id="p_img" >이미지</div>
+			<div id="p_title">타이틀</div>
+			<div id="p_txt">내용을 입력해 주세요</div>	
 		</div>
-		<div id="edit_box"></div>
+		<div class="p_res2">
+			<div id="p_img2">이미지</div>
+			<div id="p_title2">타이틀</div>
+			<div id="p_txt2">내용을 입력해 주세요</div>
+		</div>
+			
+		</div>	
+				
+
+	
+	<div id="edit_box" >
+		<div id="title" style="text-align: center;">
+			<h2>이미지와 텍스트를 함께 추가 합니다.</h2>
+			<div id="option_img">
+				<span class="input_img"> <label><input type="radio"
+						name="type" value="이미지 왼쪽"> 이미지 왼쪽</label> <label><input
+						type="radio" name="type" value="이미지 오른쪽"> 이미지 오른쪽</label> <label><input
+						type="radio" name="type" value="1단 이미지"> 1단 이미지</label> <label><input
+						type="radio" name="type" value="2단 이미지"> 2단 이미지</label>
+				</span>
+			</div>
+			<div id="option_text">
+				<span class="input_text"> 
+					<label for="chk">
+						<input type="checkbox" name="tilte" value="타이틀 쓰기" class="chk" onClick="checkDisable(this.form)"> 타이틀 쓰기
+					</label>
+					<label for="chk">
+						<input type="checkbox" name="text" value="설명 쓰기" class="chk"> 설명 쓰기
+					</label>
+				</span>
+			</div>
+		</div>
+		<div>
+		<div id="option_block" style="display: flex;">
+			<div id="block_img">
+				<span style="vertical-align: middle; display:inline;">이미지 올리기</span>
+			</div>
+			<div id="block_text">
+				<input id="input_b_text" maxlength="20" placeholder=" 타이틀" style="width: 100%;">
+				<textarea id="inpu_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%"></textarea>
+			</div>
+		</div>
+		
+		<div id="option_block2" style="display: flex;">
+			<div id="block_img">
+				<span style="vertical-align: middle; display:inline;">이미지 올리기</span>
+			</div>
+			<div id="block_text">
+				<input id="input_b_text" type="text" value="타이틀" maxlength="20" placeholder=" 타이틀" style="width: 100%;">
+				<textarea id="inpu_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%"></textarea>
+			</div>
+		</div>
+		
+		</div>
+		
+	</div>
+
 </body>
 </html>
