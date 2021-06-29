@@ -5,13 +5,14 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>회원정보 관리</title>
+<title>템플릿 보기</title>
 <style type="text/css">
 body {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 	height: 100%;
+	text-align: center;
 }
 
 #content {
@@ -89,23 +90,25 @@ tr {
 	width: 1000px;
 }
 
-#paging #page{
-	display: flex;
-	margin: auto;
+#paging>button {
+	height: 45px;
 }
-
-#page > a{
-	margin-left: 8px;
-}
-
-#paging > img {
-	text-decoration: none;
-}
-
 </style>
 <script type="text/javascript">
 	function delete_go() {
 		location.href = "";
+	}
+
+	function chk_all() {
+		if (chk_form.chkall.checked == true) {
+			for (i = 0; i < chk_form.chk.length; i++) {
+				chk_form.chk[i].checked = true;
+			}
+		} else {
+			for (i = 0; i < chk_form.chk.length; i++) {
+				chk_form.chk[i].checked = false;
+			}
+		}
 	}
 </script>
 </head>
@@ -114,29 +117,31 @@ tr {
 		<div id="head">
 			<h1 id="cnt_logo">회원정보관리</h1>
 		</div>
-		<form method="post" action="#">
-			<div id="searchbar">
+		<div id="searchbar">
+			<form method="post" action="#">
 				<select id="sort">
 					<option value="init">이름별</option>
 					<option value="color">색상별</option>
 				</select> <input id="search" type="search" name="input"
 					placeholder="검색할 내용을 입력해주세요"> <input id="img" type="image"
 					src="../images/search.png" alt="검색">
-			</div>
-			<div id="user">
-				<div>
-					<form method="post">
-						<table>
-							<thead style="background-color: #fafafa">
-								<tr>
-									<th style="width: 15%"><input type="checkbox">전체선택</th>
-									<th style="width: 20%">이름</th>
-									<th style="width: 55%">아이디</th>
-									<th style="width: 10%">권한</th>
-								</tr>
-							</thead>
-							<tbody>
-								<%-- 
+			</form>
+		</div>
+		<div id="user">
+			<div>
+				<form method="post" name="chk_form">
+					<table>
+						<thead style="background-color: #fafafa">
+							<tr>
+								<th style="width: 15%"><input type="checkbox" name="chkall"
+									onclick="chk_all()">전체선택</th>
+								<th style="width: 20%">이름</th>
+								<th style="width: 55%">아이디</th>
+								<th style="width: 10%">권한</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%-- 
 								<c:choose>
 									<c:when test="${empty list}">
 										<tr>
@@ -155,90 +160,66 @@ tr {
 									</c:otherwise>
 								</c:choose> 
 								--%>
-								<tr>
-									<th style="width: 15%"><input type="checkbox">전체선택</th>
-									<th style="width: 20%">이름</th>
-									<th style="width: 55%">아이디</th>
-									<th style="width: 10%">권한</th>
-								</tr>
-								<tr>
-									<th style="width: 15%"><input type="checkbox">전체선택</th>
-									<th style="width: 20%">이름</th>
-									<th style="width: 55%">아이디</th>
-									<th style="width: 10%">권한</th>
-								</tr>
-								<tr>
-									<th style="width: 15%"><input type="checkbox">전체선택</th>
-									<th style="width: 20%">이름</th>
-									<th style="width: 55%">아이디</th>
-									<th style="width: 10%">권한</th>
-								</tr>
-								<tr>
-									<th style="width: 15%"><input type="checkbox">전체선택</th>
-									<th style="width: 20%">이름</th>
-									<th style="width: 55%">아이디</th>
-									<th style="width: 10%">권한</th>
-								</tr>
-								<tr>
-									<th style="width: 15%"><input type="checkbox">전체선택</th>
-									<th style="width: 20%">이름</th>
-									<th style="width: 55%">아이디</th>
-									<th style="width: 10%">권한</th>
-								</tr>
-								<tr>
-									<th style="width: 15%"><input type="checkbox">전체선택</th>
-									<th style="width: 20%">이름</th>
-									<th style="width: 55%">아이디</th>
-									<th style="width: 10%">권한</th>
-								</tr>
-								<tr>
-									<th style="width: 15%"><input type="checkbox">전체선택</th>
-									<th style="width: 20%">이름</th>
-									<th style="width: 55%">아이디</th>
-									<th style="width: 10%">권한</th>
-								</tr>
-							</tbody>
-						</table>
-					</form>
+							<tr>
+								<th style="width: 15%"><input type="checkbox" name="chk"
+									value=""></th>
+								<th style="width: 20%">이름</th>
+								<th style="width: 55%">아이디</th>
+								<th style="width: 10%">권한</th>
+							</tr>
+							<tr>
+								<th style="width: 15%"><input type="checkbox" name="chk"
+									value=""></th>
+								<th style="width: 20%">이름</th>
+								<th style="width: 55%">아이디</th>
+								<th style="width: 10%">권한</th>
+							</tr>
+							<tr>
+								<th style="width: 15%"><input type="checkbox" name="chk"
+									value=""></th>
+								<th style="width: 20%">이름</th>
+								<th style="width: 55%">아이디</th>
+								<th style="width: 10%">권한</th>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<div id="paging">
+				<div id="page">
+					<c:choose>
+						<c:when test="false">
+							<a><img alt="왼쪽" src="../images/left.png" width="40px"></a>
+						</c:when>
+						<c:otherwise>
+							<a href="#"><img alt="왼쪽" src="../images/left.png"
+								width="40px"></a>
+						</c:otherwise>
+					</c:choose>
+					<c:forEach begin="1" end="3" step="1" var="k">
+						<c:choose>
+							<c:when test="false">
+								<a>${k}</a>
+							</c:when>
+							<c:otherwise>
+								<a href="#">${k}</a>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					<!-- 다음 블록 -->
+					<c:choose>
+						<c:when test="false">
+							<a><img alt="오른쪽" src="../images/right.png" width="40px"></a>
+						</c:when>
+						<c:otherwise>
+							<a href="#""><img alt="오른쪽" src="../images/right.png"
+								width="40px"></a>
+						</c:otherwise>
+					</c:choose>
 				</div>
+				<button onclick="delete_go()"
+					style="height: 41px; width: 80px; float: right; background-color: wheat;">삭제하기</button>
 			</div>
-		</form>
-		<div id="paging">
-			<div id="page">
-			<c:choose>
-				<c:when test="false">
-					<a><img alt="왼쪽" src="../images/left.png"
-						width="40px"></a>
-				</c:when>
-				<c:otherwise>
-					<a href="#"><img alt="왼쪽" src="../images/left.png"
-						width="40px"></a>
-				</c:otherwise>
-			</c:choose>
-			<c:forEach begin="1" end="3" step="1" var="k">
-				<c:choose>
-					<c:when test="false">
-						<a>${k}</a>
-					</c:when>
-					<c:otherwise>
-						<a href="#">${k}</a>
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			<!-- 다음 블록 -->
-			<c:choose>
-				<c:when test="false">
-					<a><img alt="오른쪽" src="../images/right.png"
-						width="40px"></a>
-				</c:when>
-				<c:otherwise>
-					<a href="#""><img alt="오른쪽"
-						src="../images/right.png" width="40px"></a>
-				</c:otherwise>
-			</c:choose>
-			</div>
-			<input type="button" value="삭제하기" onclick="delete_go()"
-				style="height: 41px; width: 80px; background-color: wheat;">
 		</div>
 	</div>
 </body>
