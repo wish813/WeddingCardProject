@@ -8,95 +8,29 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Document</title>
 <style>
-
 #phone {
-			width: 30%;
-			float: left;
-			height: 100%;
-			border: 2px solid black;
-			border-radius: 50px;
-			text-align: center;
-		}
-
-		#edit_box {
-			width: 60%;
-			float: right;
-			height: 100%;
-			border: 2px solid black;
-			margin: auto;
-		}
-/* menubar */
-#menubar {
-	width: 90%;              
-	text-align: center;
-	height: 120px;
-	margin: auto;
-}
-
-.menu1 {
-	background-color: NavajoWhite;
-	height: 30px;
-	line-height: 30px;
-	cursor: pointer;
+	width: 30%;
 	float: left;
-	margin: auto;
-}
-
-#menubar>div:hover {
-	background-color: Moccasin;
-	opacity: 0.5;
-}
-
-#menubar>div {
-	background-color: wheat;
-	height: 80px;
-	line-height: 80px;
-	cursor: pointer;
-	width: 15%;
-	text-align: center;
-	margin: auto;
-	font-size: 20px;
-	font-weight: bold;
-	border-left: 1px white solid;
-	box-sizing: border-box;
-}
-
-.menu {
-	background-color: NavajoWhite;
-	height: 30px;
-	line-height: 30px;
-	cursor: pointer;
-}
-
-#edit {
-	width: 80%;
-	margin: auto;
-	padding: 15px;
-	height: 500px;
+	height: 100%;
 	border: 2px solid black;
-}
-
-#footer {
-	width: 100%;
-	height: 120px;
-	line-height: 120px;
+	border-radius: 50px;
 	text-align: center;
 }
 
-#footer>div:hover {
-	background-color: Moccasin;
-	opacity: 0.5;
+#edit_box {
+	width: 60%;
+	float: right;
+	height: 100%;
+	border: 2px solid black;
+	margin: auto;
+	overflow: auto;
 }
 
-#footer>div {
-	background-color: wheat;
-	height: 50px;
-	line-height: 50px;
-	cursor: pointer;
-	width: 20%;
-	text-align: center;
-	display: inline-block;
+
+textarea{
+	width: 80%;
 }
+
 </style>
 </head>
 <body>
@@ -124,7 +58,7 @@
 				<a class="every" ><input type="checkbox" name="board_type" value="secret">비밀글 기본</a>
 				<hr>
 			</div>
-			
+			<!-- 보류 -->
 			<div>
 				<h5>게시글 보기</h5>
 				<input type="radio" name="show_type" value="list_type">목록보기
@@ -133,7 +67,7 @@
 			</div>
 			<div>
 				<h5>글쓰기 안내 문구</h5>
-				<textarea rows="5px" cols="60%"></textarea>
+				<div><textarea rows="5px"></textarea></div>
 				<hr>
 			</div>
 			<div>
@@ -186,7 +120,7 @@
 	
 	$('input[name="account"]').change(function () {
 		var a = $('input[name="account"]:checked').val();
-		alert(a);
+		//alert(a);
 		if(a=="admin"){
 			$(".every").hide();
 		}else{
