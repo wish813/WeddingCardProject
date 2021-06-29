@@ -86,8 +86,7 @@ tr {
 #paging {
 	margin: 45px auto;
 	font-size: 30px;
-	display: flex;
-	width: 100%;
+	width: 1000px;
 }
 
 #paging #page{
@@ -102,12 +101,7 @@ tr {
 #paging > img {
 	text-decoration: none;
 }
-     
-#paging > input {
-	position: absolute;
-	height: 45px;
-	right: 24%;
-}
+
 </style>
 <script type="text/javascript">
 	function delete_go() {

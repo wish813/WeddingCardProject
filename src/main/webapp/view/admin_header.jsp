@@ -10,64 +10,65 @@
     <title>MoDo</title>
     <style>
       body {
-        padding: 0;
-        margin: 0;
         box-sizing: border-box;
       }
+      #logo_box{
+      	background-color: white;
+        margin-left: 10%;
+      }
       #logo {
-        padding-left: 20px;
-        text-align: center;
         font-size: 48px;
-        width: 10%;
+        align: center;
+        margin: auto;
       }
       #header {
         display: flex;
         align-items: center;
+        background-color: chocolate;
       }
-      #nav {
+      #logo > a {
+        text-decoration: none;
+        color: black;
+      }
+       #nav {
         width: 70%;
         text-align: center;
       }
       #nav > div:hover {
-        background-color: bisque;
         opacity: 0.5;
+        color: Lavender;
       }
       #nav > div {
-        background-color: wheat;
         height: 30px;
         line-height: 30px;
         cursor: pointer;
-
         width: 25%;
         text-align: center;
         display: inline-block;
+      	color: gold;
       }
-      #logo > a {
-        padding: 10px;
-        text-decoration: none;
-        color: black;
-      }
+      
       #rightTopBar {
-        width: 20%;
-        text-align: center;
+        width: 80%;
+        text-align: right;
+        float: right;
       }
       #rightTopBar > a {
         padding: 10px;
         text-decoration: none;
-        color: black;
+        color: gold;
       }
       #rightTopBar > a:hover,
       #rightTopBar > a:active {
         text-decoration: none;
-        color: black;
+        color: white;
       }
       #rightTopBar > a:hover {
-        border-bottom: 2px solid salmon;
+        border-bottom: 2px solid Lavender;
       }
       #rightTopBar > a:first-child {
         margin-right: 20px;
       }
-
       #content {
         width: 100%;
         height: auto;
@@ -76,27 +77,18 @@
   </head>
   <body>
     <div id="header">
-      <h1 id="logo"><a href="header.jsp">Logo</a></h1>
+      <div id="logo_box"><h1 id="logo"><a href="admin_header.jsp">Logo</a></h1></div>
       <div id="nav">
-        <div onclick="navClick('main.html')">게시판 관리</div>
-        <div onclick="navClick('user_info.jsp')">회원정보 관리</div>
-        <div onclick="navClick('template.jsp')">템플릿 관리</div>
+        <div onclick="navClick('search_board.jsp')">게시판관리</div>
+        <div onclick="navClick('template_add.jsp')">템플릿관리</div>
+        <div onclick="navClick('user_info.jsp')">회원관리</div>
       </div>
       <div id="rightTopBar">
         <a
-          onclick="navClick('login.html')"
+          onclick="navClick('index.html')"
           href="javascript:void(0);"
           return
-          false;
-          >로그인</a
-        >
-        <a
-          onclick="navClick('test.html')"
-          href="javascript:void(0);"
-          return
-          false;
-          >마이페이지</a
-        >
+          false;>로그아웃</a>
       </div>   
     </div>
     <div id="content"></div>
