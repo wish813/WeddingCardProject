@@ -7,12 +7,15 @@
 <meta charset="EUC-KR">
 <title>템플릿 보기</title>
 <style type="text/css">
-@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+@import
+	"//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
 body {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 	height: 100%;
+	text-decoration: none;
 }
 
 #content {
@@ -42,33 +45,6 @@ body {
 	justify-content: center;
 }
 
-#temple {
-	text-align: center;
-	margin-top: 50px;
-}
-
-table {
-	border-collapse: collapse;
-	text-align: center;
-	width: 1000px;
-	margin: auto;
-}
-
-#searchbar #img {
-	margin-left: 20px;
-	height: 35px;
-	width: 50px;
-	height: 35px;
-}
-
-#searchbar #search {
-	margin-left: 20px;
-	height: 35px;
-	width: 500px;
-	border-radius: 7px;
-	font-family: 'fontAwesome';
-}
-
 #search::-webkit-input-placeholder {
 	font-family: FontAwesome;
 	font-weight: normal;
@@ -80,18 +56,40 @@ table {
 	color: hsl(9, 40%, 60%);
 }
 
+#searchbar #img {
+	margin-left: 20px;
+	height: 35px;
+	width: 50px;
+}
+
+#searchbar #search {
+	margin-left: 20px;
+	height: 35px;
+	width: 500px;
+	border-radius: 7px;
+	font-family: 'fontAwesome';
+}
+
 #searchbar #sort {
 	height: 35px;
+}
+
+
+#temple table {
+	border-collapse: collapse;
+	text-align: center;
+	width: 1000px;
+	margin: auto;
+}
+
+#temple {
+	text-align: center;
+	margin-top: 50px;
 }
 
 #temple td {
 	font-size: 25px;
 	padding: 2px 8px 3px auto;
-}
-
-#temple p {
-	padding: 0;
-	margin: 0;
 }
 
 #temple img {
@@ -104,41 +102,32 @@ table {
 	text-decoration: none;
 }
 
-#temple>a:hover, #temple>a:active {
+#temple a:hover, a:active, a:visited {
 	text-decoration: none;
 	color: black;
 }
 
 /* 페이징 */
 #paging {
-	margin: 45px auto;
+	margin: 30px auto;
 	font-size: 30px;
-	display: flex;
-	width: 100%;
+	width: 1000px;
+	text-align: center;
 }
 
-#paging #page {
-	display: flex;
-	margin: auto;
-}
-
-#page>a {
-	margin-left: 8px;
-}
-
-#paging>img {
-	text-decoration: none;
-}
-
-#paging>button {
-	position: absolute;
+#paging button {
 	height: 45px;
-	right: 23%;
 }
+
 </style>
 <script type="text/javascript">
 	function write_go() {
 		location.href = "template_add.jsp";
+	}
+
+	function search_go(f) {
+		f.action = "#";
+		f.submit();
 	}
 </script>
 </head>
@@ -147,59 +136,59 @@ table {
 		<div id="head">
 			<h1 id="cnt_logo">템플릿 선택</h1>
 		</div>
-		<form method="post">
-			<div id="searchbar">
-				<select id="sort">
-					<option value="init">이름별</option>
-					<option value="color">색상별</option>
-				</select> <input id="search" type="search" name="input"
-					placeholder="&#61442;"> <input id="img" type="image"
-					src="../images/search.png" alt="검색">
+		<div id="searchbar">
+			<select id="sort">
+				<option value="init">이름별</option>
+				<option value="color">색상별</option>
+			</select> <input id="search" type="search" name="input" placeholder="&#61442;">
+			<input id="img" type="image" src="../img/search.png" alt="검색"
+				onclick="search_go(this.form)">
+		</div>
+		<div id="temple">
+			<div>
+				<form method="post">
+					<table>
+						<tbody>
+							<tr>
+								<td><a href="#"> <img alt="삼성" src="../img/sam.png">
+										<p>삼성</p>
+								</a></td>
+								<td><a href="#"><img alt="삼성" src="../img/sam.png">
+										<p>템플릿2</p></a></td>
+								<td><a href="#"><img alt="삼성" src="../img/sam.png">
+										<p>템플릿3</p></a></td>
+								<td><a href="#"><img alt="삼성" src="../img/sam.png">
+										<p>템플릿4</p></a></td>
+							</tr>
+							<tr>
+								<td><a href="#"> <img alt="op.gg"
+										src="../img/opgg.jpg">
+										<p>op.gg</p>
+								</a></td>
+								<td><a href="#"> <img alt="템플릿"
+										src="upload/${bvo.file_name}">
+										<p>${bvo.file_name}</p>
+								</a></td>
+								<td><a href="#">
+										<p>템플릿7</p>
+								</a></td>
+								<td><a href="#">
+										<p>템플릿8</p>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
 			</div>
-			<div id="temple">
-				<table>
-					<tbody>
-						<tr>
-							<td><a href="#"> <img alt="삼성" src="../images/sam.png">
-									<p>삼성</p>
-							</a></td>
-							<td><a href="#"><img alt="삼성" src="../images/sam.png">
-									<p>템플릿2</p></a></td>
-							<td><a href="#"><img alt="삼성" src="../images/sam.png">
-									<p>템플릿3</p></a></td>
-							<td><a href="#"><img alt="삼성" src="../images/sam.png">
-									<p>템플릿4</p></a></td>
-						</tr>
-						<tr>
-							<td><a href="#"> <img alt="op.gg"
-									src="../images/opgg.jpg">
-									<p>op.gg</p>
-							</a></td>
-							<td><a href="#"> <img alt="템플릿"
-									src="upload/${bvo.file_name}">
-									<p>${bvo.file_name}</p>
-							</a></td>
-							<td><a href="#">
-									<p>템플릿7</p>
-							</a></td>
-							<td><a href="#">
-									<p>템플릿8</p>
-							</a></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</form>
+		</div>
 		<div id="paging">
 			<div id="page">
 				<c:choose>
 					<c:when test="false">
-						<a class="btn"><img alt="왼쪽" src="../images/left.png"
-							width="40px"></a>
+						<a><img alt="왼쪽" src="../img/left.png" width="40px"></a>
 					</c:when>
 					<c:otherwise>
-						<a class="btn" href="#"><img alt="왼쪽" src="../images/left.png"
-							width="40px"></a>
+						<a href="#"><img alt="왼쪽" src="../img/left.png" width="40px"></a>
 					</c:otherwise>
 				</c:choose>
 				<c:forEach begin="1" end="3" step="1" var="k">
@@ -215,18 +204,16 @@ table {
 				<!-- 다음 블록 -->
 				<c:choose>
 					<c:when test="false">
-						<a class="btn"><img alt="오른쪽" src="../images/right.png"
-							width="40px"></a>
+						<a><img alt="오른쪽" src="../img/right.png" width="40px"></a>
 					</c:when>
 					<c:otherwise>
-						<a class="btn" href="#""><img alt="오른쪽"
-							src="../images/right.png" width="40px"></a>
+						<a href="#""><img alt="오른쪽" src="../img/right.png"
+							width="40px"></a>
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<button
-				style="height: 40px; width: 150px; font-size: 22px; background-color: wheat"
-				type="button" onclick="write_go()">템플릿 추가</button>
+			<button onclick="delete_go()"
+				style="height: 45px; width: 90px; float: right; background-color: #F5FFFA;">템플릿 추가</button>
 		</div>
 	</div>
 </body>

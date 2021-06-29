@@ -7,6 +7,9 @@
 <meta charset="EUC-KR">
 <title>템플릿 보기</title>
 <style type="text/css">
+@import
+	"//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
 body {
 	padding: 0;
 	margin: 0;
@@ -43,27 +46,39 @@ body {
 	justify-content: center;
 }
 
-table {
-	border-collapse: collapse;
-	text-align: center;
-	width: 1000px;
+#search::-webkit-input-placeholder {
+	font-family: FontAwesome;
+	font-weight: normal;
+	overflow: visible;
+	vertical-align: top;
+	display: inline-block !important;
+	padding-left: 5px;
+	padding-top: 2px;
+	color: hsl(9, 40%, 60%);
 }
 
 #searchbar #img {
 	margin-left: 20px;
 	height: 35px;
 	width: 50px;
-	height: 35px;
 }
 
 #searchbar #search {
 	margin-left: 20px;
 	height: 35px;
 	width: 500px;
+	border-radius: 7px;
+	font-family: 'fontAwesome';
 }
 
 #searchbar #sort {
 	height: 35px;
+}
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+	width: 1000px;
 }
 
 table, tr, td {
@@ -78,11 +93,6 @@ tr {
 	line-height: 2.5;
 }
 
-#temple>a:hover, #temple>a:active {
-	text-decoration: none;
-	color: black;
-}
-
 /* 페이징 */
 #paging {
 	margin: 45px auto;
@@ -90,13 +100,18 @@ tr {
 	width: 1000px;
 }
 
-#paging>button {
+#paging button {
 	height: 45px;
 }
 </style>
 <script type="text/javascript">
 	function delete_go() {
 		location.href = "";
+	}
+	
+	function search_go(f) {
+		f.action = "";
+		f.submit();
 	}
 
 	function chk_all() {
@@ -118,20 +133,18 @@ tr {
 			<h1 id="cnt_logo">회원정보관리</h1>
 		</div>
 		<div id="searchbar">
-			<form method="post" action="#">
-				<select id="sort">
-					<option value="init">이름별</option>
-					<option value="color">색상별</option>
-				</select> <input id="search" type="search" name="input"
-					placeholder="검색할 내용을 입력해주세요"> <input id="img" type="image"
-					src="../images/search.png" alt="검색">
-			</form>
+			<select id="sort">
+				<option value="init">이름별</option>
+				<option value="color">색상별</option>
+			</select> <input id="search" type="search" name="input"
+				placeholder="&#61442;"> <input id="img" type="image"
+				src="../img/search.png" alt="검색" onsubmit="search_go(this.form)">
 		</div>
 		<div id="user">
 			<div>
 				<form method="post" name="chk_form">
 					<table>
-						<thead style="background-color: #fafafa">
+						<thead style="background-color: #F5FFFA">
 							<tr>
 								<th style="width: 15%"><input type="checkbox" name="chkall"
 									onclick="chk_all()">전체선택</th>
@@ -189,11 +202,10 @@ tr {
 				<div id="page">
 					<c:choose>
 						<c:when test="false">
-							<a><img alt="왼쪽" src="../images/left.png" width="40px"></a>
+							<a><img alt="왼쪽" src="../img/left.png" width="40px"></a>
 						</c:when>
 						<c:otherwise>
-							<a href="#"><img alt="왼쪽" src="../images/left.png"
-								width="40px"></a>
+							<a href="#"><img alt="왼쪽" src="../img/left.png" width="40px"></a>
 						</c:otherwise>
 					</c:choose>
 					<c:forEach begin="1" end="3" step="1" var="k">
@@ -209,16 +221,16 @@ tr {
 					<!-- 다음 블록 -->
 					<c:choose>
 						<c:when test="false">
-							<a><img alt="오른쪽" src="../images/right.png" width="40px"></a>
+							<a><img alt="오른쪽" src="../img/right.png" width="40px"></a>
 						</c:when>
 						<c:otherwise>
-							<a href="#""><img alt="오른쪽" src="../images/right.png"
+							<a href="#""><img alt="오른쪽" src="../img/right.png"
 								width="40px"></a>
 						</c:otherwise>
 					</c:choose>
 				</div>
 				<button onclick="delete_go()"
-					style="height: 41px; width: 80px; float: right; background-color: wheat;">삭제하기</button>
+					style="height: 41px; width: 80px; float: right; background-color: #F5FFFA;">삭제하기</button>
 			</div>
 		</div>
 	</div>

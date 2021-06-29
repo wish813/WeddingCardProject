@@ -24,7 +24,7 @@
       #header {
         display: flex;
         align-items: center;
-        background-color: chocolate;
+        background-color: #48D1CC;
       }
       #logo > a {
         text-decoration: none;
@@ -45,7 +45,7 @@
         width: 25%;
         text-align: center;
         display: inline-block;
-      	color: gold;
+      	color: #F5FFFA;
       }
       
       #rightTopBar {
@@ -56,7 +56,7 @@
       #rightTopBar > a {
         padding: 10px;
         text-decoration: none;
-        color: gold;
+        color: #F5FFFA;
       }
       #rightTopBar > a:hover,
       #rightTopBar > a:active {

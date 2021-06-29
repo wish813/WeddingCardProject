@@ -85,7 +85,7 @@ body {
 	height: 35px;
 	font-size: 22px;
 	text-align: center;
-	background-color: wheat;
+	background-color: #F5FFFA;
 	margin-left: 15px;
 }
 </style>
@@ -109,7 +109,7 @@ body {
 			</div>
 			<div id="body">
 				<div id="tmp_img">
-					<img alt="이미지파일" src="../images/img_icon.png">
+					<img alt="이미지파일" src="../img/img_icon.png">
 					<h3>템플릿 이름</h3>
 				</div>
 				<div id="tmp_name">
