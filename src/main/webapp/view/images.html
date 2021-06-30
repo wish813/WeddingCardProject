@@ -15,9 +15,11 @@
 
 
 #edit_box {
+	width : 65%;
 	float:right;
 	height: 100%;
 	border: 2px solid black;
+	min-width: 100px;
 }
 #option_block{
 	border: 1px solid gray;
@@ -50,7 +52,7 @@
 	margin: 16px;
 	line-height: 50px;
 }
-#input_b_text{
+.input_b_text{
 	margin-bottom: 10px;
 	height: 20px;
 	
@@ -70,65 +72,125 @@
 }
 #phone{
 	display: grid;
-}
-
-#p_img{
-	border: 1px solid #697a8f;
-	padding: 20px;
-	text-align: center;
-	background-color: #f3f4f4;
-	vertical-align: middle;
-	margin: 24px;
-	height: 50px;
-}
-#p_img2{
-	border: 1px solid #697a8f;
-	padding: 20px;
-	text-align: center;
-	background-color: #f3f4f4;
-	vertical-align: middle;
-	margin: 24px;
-	height: 50px;
-}
-
-#p_title{
-	margin: 24px;
-	line-height: 0.1;
-}
-#p_txt{
-	margin: 24px;
-	line-height: 0.1;
-}
-#p_title2{
-	margin: 24px;
-	line-height: 0.1;
+	min-width: 100px;
 	
 }
-#p_txt2{
+
+.p_img3{
+	border: 1px solid #697a8f;
+	padding: 20px;
+	text-align: center;
+	background-color: #f3f4f4;
+	vertical-align: middle;
 	margin: 24px;
-	line-height: 0.1;
+	height: 50px;
 }
 
+.p_img1{
+	border: 1px solid #697a8f;
+	background-color: #f3f4f4;
+	text-align: center;
+	margin: 24px;
+    padding: 24px;
+}
+
+.p_img2{
+	border: 1px solid #697a8f;
+	background-color: #f3f4f4;
+	text-align: center;
+	margin: 24px;
+    padding: 24px;
+    
+}
+	
+.p_res2{
+	display: flex;
+}
+
+	
+
+.p_title{
+	line-height: 4;
+    margin-top: 48px;
+    text-align: center;
+}
+.p_txt{
+	margin: 6px;
+    line-height: 7;
+    text-align: center;
+}
 
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
+	function disable() {
+		const target = document.getElementsByClassName("input_b_text");
+		for (var i = 0; i < target.length; i++) {
+			
+			const tf = target[i].disabled;
+				
+			
+			if(tf){
+				target[i].disabled = false;
+				document.getElementsByClassName("p_title")[i].style.display = "block";
+			}else{
+				target[i].disabled = true;
+				document.getElementsByClassName("p_title")[i].style.display = "none";
+			}
+		
+		}
+
+		
+		
+	}
+	
+	function disable2() {
+		const target = document.getElementsByClassName("input_b_area");
+		for (var i = 0; i < target.length; i++) {
+			
+		const tf = target[i].disabled;
+		
+		if(tf){
+			target[i].disabled = false;
+			document.getElementsByClassName("p_txt")[i].style.display = "block";
+		}else{
+			target[i].disabled = true;
+			document.getElementsByClassName("p_txt")[i].style.display = "none";
+		}
+		
+		}
+	}
+	
+	function res(param) {
+		const input = document.getElementsByClassName("input_b_text")[param].value;
+		document.getElementsByClassName("p_title")[param].value = input;
+	}
+	
+	function res2(param) {
+		const input = document.getElementsByClassName("input_b_area")[param].value;
+		document.getElementsByClassName("p_txt")[param].value = input;
+	}
+	
+	
+
 
 </script>
 
 </head>
 <body>
-
-		<div id="phone">
-		<div class="p_res">
-			<div id="p_img" >이미지</div>
-			<div id="p_title">타이틀</div>
-			<div id="p_txt">내용을 입력해 주세요</div>	
+		<div id="phone" >
+		<div class="p_res2" >
+			<div class="p_img2" >이미지</div>
+			<div><input class="p_title" placeholder="타이틀" readonly style="display: none; border: none;">
+				 <input class="p_txt" placeholder="내용을 입력해 주세요"" readonly style="display: none; border: none;">
+			</div>
 		</div>
 		<div class="p_res2">
-			<div id="p_img2">이미지</div>
-			<div id="p_title2">타이틀</div>
-			<div id="p_txt2">내용을 입력해 주세요</div>
+			<div class="p_img2" >이미지</div>
+			<div style="display: block;"><input class="p_title" placeholder="타이틀" readonly style="display: none; border: none;">
+				 <input class="p_txt" placeholder="내용을 입력해 주세요"" readonly style="display: none; border: none;">
+			</div>
 		</div>
 			
 		</div>	
@@ -139,20 +201,20 @@
 		<div id="title" style="text-align: center;">
 			<h2>이미지와 텍스트를 함께 추가 합니다.</h2>
 			<div id="option_img">
-				<span class="input_img"> <label><input type="radio"
-						name="type" value="이미지 왼쪽"> 이미지 왼쪽</label> <label><input
-						type="radio" name="type" value="이미지 오른쪽"> 이미지 오른쪽</label> <label><input
-						type="radio" name="type" value="1단 이미지"> 1단 이미지</label> <label><input
-						type="radio" name="type" value="2단 이미지"> 2단 이미지</label>
+				<span class="input_img">
+				<label><input type="radio" name="type" value="이미지 왼쪽" id="img_left" > 이미지 왼쪽</label> 
+				<label><input type="radio" name="type" value="이미지 오른쪽" id="img_right"> 이미지 오른쪽</label>
+				<label><input type="radio" name="type" value="1단 이미지" id="img_top"> 1단 이미지</label>
+				<label><input type="radio" name="type" value="2단 이미지" id="img_tile"> 2단 이미지</label>
 				</span>
 			</div>
 			<div id="option_text">
 				<span class="input_text"> 
-					<label for="chk">
-						<input type="checkbox" name="tilte" value="타이틀 쓰기" class="chk" onClick="checkDisable(this.form)"> 타이틀 쓰기
+					<label>
+						<input type="checkbox" name="tilte" value="타이틀 쓰기" id="title" onclick="disable()"> 타이틀 쓰기133257
 					</label>
-					<label for="chk">
-						<input type="checkbox" name="text" value="설명 쓰기" class="chk"> 설명 쓰기
+					<label>
+						<input type="checkbox" name="text" value="설명 쓰기" id="text" onclick="disable2()"> 설명 쓰기233257
 					</label>
 				</span>
 			</div>
@@ -163,8 +225,8 @@
 				<span style="vertical-align: middle; display:inline;">이미지 올리기</span>
 			</div>
 			<div id="block_text">
-				<input id="input_b_text" maxlength="20" placeholder=" 타이틀" style="width: 100%;">
-				<textarea id="inpu_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%"></textarea>
+				<input class="input_b_text" type="text" maxlength="15" placeholder=" 타이틀" style="width: 100%;" disabled onkeyup="res(0)">
+				<textarea class="input_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%" disabled onkeyup="res2(0)"></textarea>
 			</div>
 		</div>
 		
@@ -173,8 +235,8 @@
 				<span style="vertical-align: middle; display:inline;">이미지 올리기</span>
 			</div>
 			<div id="block_text">
-				<input id="input_b_text" type="text" value="타이틀" maxlength="20" placeholder=" 타이틀" style="width: 100%;">
-				<textarea id="inpu_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%"></textarea>
+				<input class="input_b_text" type="text"  maxlength="20" placeholder=" 타이틀" style="width: 100%;" disabled onkeyup="res(1)">
+				<textarea class="input_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%" disabled onkeyup="res2(1)"></textarea>
 			</div>
 		</div>
 		
