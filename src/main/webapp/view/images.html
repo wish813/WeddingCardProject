@@ -1,121 +1,141 @@
 <!DOCTYPE html>
+
+
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
 #phone {
-	width: 30%;
-	float:left;
-	height: 100%;
-	border: 2px solid black;
-	border-radius: 50px;
+   width: 30%;
+   float:left;
+   height: 100%;
+   border: 2px solid black;
+   border-radius: 50px;
 }
 
+/* 역방향  */
+.reverse{
+   flex-direction: row-reverse;
+}
 
+/* 1단  */
+.notFlex{
+   display: block !important;
+}
+
+/* 2단  */
+.grid2{
+   grid-template-columns: 50% 50%;
+}
+
+/* 1단  */
+.grid1{
+   grid-template-columns: 100%;
+}
 
 #edit_box {
-	width : 65%;
-	float:right;
-	height: 100%;
-	border: 2px solid black;
-	min-width: 100px;
+   width : 65%;
+   float:right;
+   height: 100%;
+   border: 2px solid black;
+   min-width: 100px;
 }
 #option_block{
-	border: 1px solid gray;
-	width: 100%;
-	border-left: none;
-	border-right: none;
-	border-bottom: none;
+   border: 1px solid gray;
+   width: 100%;
+   border-left: none;
+   border-right: none;
+   border-bottom: none;
 }
 
 #option_block2{
-	border: 1px solid gray;
-	width: 100%;
-	border-left: none;
-	border-right: none;
-	
+   border: 1px solid gray;
+   width: 100%;
+   border-left: none;
+   border-right: none;
+   
 }
 
 #block_text{
-	text-align: center;
-	font-size: 20px;
-	margin: 16px;
+   text-align: center;
+   font-size: 20px;
+   margin: 16px;
 }
 #block_img{
-	border: 1px solid #697a8f;
-	padding: 20px;
-	text-align: center;
-	font-size: 20px;
-	background-color: #f3f4f4;
-	vertical-align: middle;
-	margin: 16px;
-	line-height: 50px;
+   border: 1px solid #697a8f;
+   padding: 20px;
+   text-align: center;
+   font-size: 20px;
+   background-color: #f3f4f4;
+   vertical-align: middle;
+   margin: 16px;
+   line-height: 50px;
 }
 .input_b_text{
-	margin-bottom: 10px;
-	height: 20px;
-	
+   margin-bottom: 10px;
+   height: 20px;
+   
 }
 
 #option_text{
-	border-top: 1px solid  #697a8f;
-	line-height: 30px;
+   border-top: 1px solid  #697a8f;
+   line-height: 30px;
 }
 #option_img{
-	border-top: 1px solid  #697a8f;
-	line-height: 30px;
+   border-top: 1px solid  #697a8f;
+   line-height: 30px;
 }
 .input_text{
-	word-spacing: 6px;
-	
+   word-spacing: 6px;
+   
 }
 #phone{
-	display: grid;
-	min-width: 100px;
-	
+   display: grid;
+   min-width: 100px;
+   
 }
 
 .p_img3{
-	border: 1px solid #697a8f;
-	padding: 20px;
-	text-align: center;
-	background-color: #f3f4f4;
-	vertical-align: middle;
-	margin: 24px;
-	height: 50px;
+   border: 1px solid #697a8f;
+   padding: 20px;
+   text-align: center;
+   background-color: #f3f4f4;
+   vertical-align: middle;
+   margin: 24px;
+   height: 50px;
 }
 
 .p_img1{
-	border: 1px solid #697a8f;
-	background-color: #f3f4f4;
-	text-align: center;
-	margin: 24px;
+   border: 1px solid #697a8f;
+   background-color: #f3f4f4;
+   text-align: center;
+   margin: 24px;
     padding: 24px;
 }
 
 .p_img2{
-	border: 1px solid #697a8f;
-	background-color: #f3f4f4;
-	text-align: center;
-	margin: 24px;
+   border: 1px solid #697a8f;
+   background-color: #f3f4f4;
+   text-align: center;
+   margin: 24px;
     padding: 24px;
     
 }
-	
+   
 .p_res2{
-	display: flex;
+   display: flex;
 }
 
-	
+   
 
 .p_title{
-	line-height: 4;
+   line-height: 4;
     margin-top: 48px;
     text-align: center;
 }
 .p_txt{
-	margin: 6px;
+   margin: 6px;
     line-height: 7;
     text-align: center;
 }
@@ -124,125 +144,182 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
-	function disable() {
-		const target = document.getElementsByClassName("input_b_text");
-		for (var i = 0; i < target.length; i++) {
-			
-			const tf = target[i].disabled;
-				
-			
-			if(tf){
-				target[i].disabled = false;
-				document.getElementsByClassName("p_title")[i].style.display = "block";
-			}else{
-				target[i].disabled = true;
-				document.getElementsByClassName("p_title")[i].style.display = "none";
-			}
-		
-		}
+   function disable() {
+      const target = document.getElementsByClassName("input_b_text");
+      for (var i = 0; i < target.length; i++) {
+         
+         const tf = target[i].disabled;
+            
+         
+         if(tf){
+            target[i].disabled = false;
+            document.getElementsByClassName("p_title")[i].style.display = "block";
+         }else{
+            target[i].disabled = true;
+            document.getElementsByClassName("p_title")[i].style.display = "none";
+         }
+      
+      }
 
-		
-		
-	}
-	
-	function disable2() {
-		const target = document.getElementsByClassName("input_b_area");
-		for (var i = 0; i < target.length; i++) {
-			
-		const tf = target[i].disabled;
-		
-		if(tf){
-			target[i].disabled = false;
-			document.getElementsByClassName("p_txt")[i].style.display = "block";
-		}else{
-			target[i].disabled = true;
-			document.getElementsByClassName("p_txt")[i].style.display = "none";
-		}
-		
-		}
-	}
-	
-	function res(param) {
-		const input = document.getElementsByClassName("input_b_text")[param].value;
-		document.getElementsByClassName("p_title")[param].value = input;
-	}
-	
-	function res2(param) {
-		const input = document.getElementsByClassName("input_b_area")[param].value;
-		document.getElementsByClassName("p_txt")[param].value = input;
-	}
-	
-	
+      
+      
+   }
+   
+   function disable2() {
+      const target = document.getElementsByClassName("input_b_area");
+      for (var i = 0; i < target.length; i++) {
+         
+      const tf = target[i].disabled;
+      
+      if(tf){
+         target[i].disabled = false;
+         document.getElementsByClassName("p_txt")[i].style.display = "block";
+      }else{
+         target[i].disabled = true;
+         document.getElementsByClassName("p_txt")[i].style.display = "none";
+      }
+      
+      }
+   }
+   
+   function res(param) {
+      const input = document.getElementsByClassName("input_b_text")[param].value;
+      document.getElementsByClassName("p_title")[param].value = input;
+   }
+   
+   function res2(param) {
+      const input = document.getElementsByClassName("input_b_area")[param].value;
+      document.getElementsByClassName("p_txt")[param].value = input;
+   }
+   
+   // 정방향 
+   function forward(){
+      const res = document.getElementsByClassName("p_res2");
+      for(let i = 0; i < res.length; i++){
+         res[i].classList.remove("reverse");
+         res[i].classList.remove("notFlex");
+      }
+      
+      const grid = document.getElementById("phone");
+      grid.classList.remove("grid1");
+      grid.classList.remove("grid2");
+   }
+   
+   // 역방향 
+   function reverse(){
+      const res = document.getElementsByClassName("p_res2");
+      for(let i = 0; i < res.length; i++){
+         res[i].classList.add("reverse");
+         res[i].classList.remove("notFlex");
+      }
+      
+      const grid = document.getElementById("phone");
+      grid.classList.remove("grid1");
+      grid.classList.remove("grid2");
+   }
+   
+   // 1단
+   function tab1(){
+      const res = document.getElementsByClassName("p_res2");
+      for(let i = 0; i < res.length; i++){
+         res[i].classList.remove("reverse");
+         res[i].classList.add("notFlex");
+      }
+      
+      const grid = document.getElementById("phone");
+      grid.classList.remove("grid2");
+      grid.classList.add("grid1");
+   }
+   
+   // 1단
+   function tab2(){
+      const res = document.getElementsByClassName("p_res2");
+      for(let i = 0; i < res.length; i++){
+         res[i].classList.remove("reverse");
+         res[i].classList.add("notFlex");
+      }
+      
+      const grid = document.getElementById("phone");
+      grid.classList.remove("grid1");
+      grid.classList.add("grid2");
+   }
+   
+   
 
 
 </script>
 
 </head>
 <body>
-		<div id="phone" >
-		<div class="p_res2" >
-			<div class="p_img2" >이미지</div>
-			<div><input class="p_title" placeholder="타이틀" readonly style="display: none; border: none;">
-				 <input class="p_txt" placeholder="내용을 입력해 주세요"" readonly style="display: none; border: none;">
-			</div>
-		</div>
-		<div class="p_res2">
-			<div class="p_img2" >이미지</div>
-			<div style="display: block;"><input class="p_title" placeholder="타이틀" readonly style="display: none; border: none;">
-				 <input class="p_txt" placeholder="내용을 입력해 주세요"" readonly style="display: none; border: none;">
-			</div>
-		</div>
-			
-		</div>	
-				
+      <div id="phone" >
+      <div class="p_res2" >
+         <div class="p_img2" >이미지</div>
+         <div><input class="p_title" placeholder="타이틀" readonly style="display: none; border: none;">
+             <input class="p_txt" placeholder="내용을 입력해 주세요"" readonly style="display: none; border: none;">
+         </div>
+      </div>
+      <div class="p_res2">
+         <div class="p_img2" >이미지</div>
+         <div style="display: block;"><input class="p_title" placeholder="타이틀" readonly style="display: none; border: none;">
+             <input class="p_txt" placeholder="내용을 입력해 주세요"" readonly style="display: none; border: none;">
+         </div>
+      </div>
+         
+      </div>   
+            
 
-	
-	<div id="edit_box" >
-		<div id="title" style="text-align: center;">
-			<h2>이미지와 텍스트를 함께 추가 합니다.</h2>
-			<div id="option_img">
-				<span class="input_img">
-				<label><input type="radio" name="type" value="이미지 왼쪽" id="img_left" > 이미지 왼쪽</label> 
-				<label><input type="radio" name="type" value="이미지 오른쪽" id="img_right"> 이미지 오른쪽</label>
-				<label><input type="radio" name="type" value="1단 이미지" id="img_top"> 1단 이미지</label>
-				<label><input type="radio" name="type" value="2단 이미지" id="img_tile"> 2단 이미지</label>
-				</span>
-			</div>
-			<div id="option_text">
-				<span class="input_text"> 
-					<label>
-						<input type="checkbox" name="tilte" value="타이틀 쓰기" id="title" onclick="disable()"> 타이틀 쓰기133257
-					</label>
-					<label>
-						<input type="checkbox" name="text" value="설명 쓰기" id="text" onclick="disable2()"> 설명 쓰기233257
-					</label>
-				</span>
-			</div>
-		</div>
-		<div>
-		<div id="option_block" style="display: flex;">
-			<div id="block_img">
-				<span style="vertical-align: middle; display:inline;">이미지 올리기</span>
-			</div>
-			<div id="block_text">
-				<input class="input_b_text" type="text" maxlength="15" placeholder=" 타이틀" style="width: 100%;" disabled onkeyup="res(0)">
-				<textarea class="input_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%" disabled onkeyup="res2(0)"></textarea>
-			</div>
-		</div>
-		
-		<div id="option_block2" style="display: flex;">
-			<div id="block_img">
-				<span style="vertical-align: middle; display:inline;">이미지 올리기</span>
-			</div>
-			<div id="block_text">
-				<input class="input_b_text" type="text"  maxlength="20" placeholder=" 타이틀" style="width: 100%;" disabled onkeyup="res(1)">
-				<textarea class="input_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%" disabled onkeyup="res2(1)"></textarea>
-			</div>
-		</div>
-		
-		</div>
-		
-	</div>
+   
+   <div id="edit_box" >
+      <div id="title" style="text-align: center;">
+         <h2>이미지와 텍스트를 함께 추가 합니다.</h2>
+         <div id="option_img">
+            <span class="input_img">
+            <!-- 온클릭 추가  -->
+            <label><input type="radio" name="type" value="이미지 왼쪽" id="img_left" onclick="forward()"> 이미지 왼쪽</label>
+            <!-- 온클릭 추가  --> 
+            <label><input type="radio" name="type" value="이미지 오른쪽" id="img_right" onclick="reverse()"> 이미지 오른쪽</label>
+            <!-- 온클릭 추가  --> 
+            <label><input type="radio" name="type" value="1단 이미지" id="img_top" onclick = "tab1()"> 1단 이미지</label>
+            <!-- 온클릭 추가  --> 
+            <label><input type="radio" name="type" value="2단 이미지" id="img_tile" onclick = "tab2()"> 2단 이미지</label>
+            </span>
+         </div>
+         <div id="option_text">
+            <span class="input_text"> 
+               <label>
+                  <input type="checkbox" name="tilte" value="타이틀 쓰기" id="title" onclick="disable()"> 타이틀 쓰기133257
+               </label>
+               <label>
+                  <input type="checkbox" name="text" value="설명 쓰기" id="text" onclick="disable2()"> 설명 쓰기233257
+               </label>
+            </span>
+         </div>
+      </div>
+      <div>
+      <div id="option_block" style="display: flex;">
+         <div id="block_img">
+            <span style="vertical-align: middle; display:inline;">이미지 올리기</span>
+         </div>
+         <div id="block_text">
+            <input class="input_b_text" type="text" maxlength="15" placeholder=" 타이틀" style="width: 100%;" disabled onkeyup="res(0)">
+            <textarea class="input_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%" disabled onkeyup="res2(0)"></textarea>
+         </div>
+      </div>
+      
+      <div id="option_block2" style="display: flex;">
+         <div id="block_img">
+            <span style="vertical-align: middle; display:inline;">이미지 올리기</span>
+         </div>
+         <div id="block_text">
+            <input class="input_b_text" type="text"  maxlength="20" placeholder=" 타이틀" style="width: 100%;" disabled onkeyup="res(1)">
+            <textarea class="input_b_area" rows="3" cols="30" placeholder="설명을 입력하세요" maxlength="100" style="width: 100%" disabled onkeyup="res2(1)"></textarea>
+         </div>
+      </div>
+      
+      </div>
+      
+   </div>
 
 </body>
 </html>
+
