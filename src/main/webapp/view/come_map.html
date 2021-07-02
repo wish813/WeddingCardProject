@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#phone {
+	width: 30%;
+	float:left;
+	height: 100%;
+	border: 2px solid black;
+	border-radius: 50px;
+}
+
+
+
+#edit_box {
+	width: 60%;
+	float:right;
+	height: 100%;
+	border: 2px solid black;
+}
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+		<div id="phone">
+		<div id="map" style="width:306px;height:200px; margin-top: 40px; border-radius: 20px;"></div>
+		
+		
+		<script type="text/javascript">
+			var container = document.getElementById('map');
+			var options = {
+				center: new kakao.maps.LatLng(33.450701, 126.570667),
+				level: 3
+			};
+			var map = new kakao.maps.Map(container, options);
+		</script>
+		</div>
+		
+		
+		<div id="edit_box">
+			<div>
+				<div style="text-align: center;">
+					<h3>주소 : 오시는길</h2>
+				</div>	
+					<div id="map_btn">
+						<a href="#" id="btn" style="text-decoration: none;">
+						<span> 지도에서 위치 선택</span>
+						</a>
+					</div>	
+					<hr>	
+					<div id="tle_p">
+						<h4>전화번호</h4>
+					</div>
+						<div id="tel">
+							<input type="tel" placeholder="전화번호">
+							<input type="tel" placeholder="전화번호2">
+						</div>
+						<hr>
+			</div>
+		</div>
+	
+	
+</body>
+</html>
