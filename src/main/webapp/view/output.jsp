@@ -278,7 +278,7 @@ table tfoot ol.paging li a:hover {
 		<div class="come_box">
 			<div id="map" style="float: left;">
 				<script type="text/javascript"
-					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bcbb97531478c6df1d294dfe878c6f93&libraries=services"></script>
+					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=&libraries=services"></script>
 				var places = new kakao.maps.services.Places(); var callback =
 				function(result, status) { if (status ===
 				kakao.maps.services.Status.OK) { console.log(result); } };
